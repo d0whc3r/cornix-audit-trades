@@ -1,0 +1,120 @@
+{
+  "name": "audit-trades",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "email": "d0whc3r@gmail.com",
+    "name": "d0whc3r",
+    "url": "https://github.com/d0whc3r"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/d0whc3r/audit-trades.git"
+  },
+  "bin": {
+    "audit-trades": "./dist/audit-trades.cjs.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/audit-trades.cjs.js",
+  "module": "dist/audit-trades.es.mjs",
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "node",
+    "audit",
+    "crypto",
+    "trades",
+    "futures",
+    "spot",
+    "btc"
+  ],
+  "scripts": {
+    "start": "dotenv -e .env -- node --loader ts-node/esm src/index.ts",
+    "start:empty": "node --loader ts-node/esm src/index.ts",
+    "test": "echo no tests",
+    "-- BUILD --": "-------------------------------------------------------------------------------------------------------",
+    "build:clean": "rimraf dist bin audit-trades*",
+    "build:dist": "cross-env NODE_ENV=production rollup -c --environment INCLUDE_DEPS,BUILD:production",
+    "build:watch": "rollup -c -w --environment INCLUDE_DEPS,BUILD:development",
+    "build:dts": "dts-bundle-generator -o dist/index.d.ts src/index.ts",
+    "build:pkg": "pkg .",
+    "build:base": "yarn build:clean && run-p build:dist build:dts",
+    "build": "run-s build:base build:pkg",
+    "semantic-release": "semantic-release",
+    "postversion": "git commit -am 'chore(bump): bump version [skip-ci]' && git push --follow-tags",
+    "-- HELPERS --": "-------------------------------------------------------------------------------------------------------",
+    "postinstall": "patch-package",
+    "prepare": "husky install",
+    "ci": "yarn clean && yarn install",
+    "clean": "yarn clean:packages",
+    "clean:packages": "rm -fr yarn.lock package-lock.json dist node_modules audit-trades*",
+    "format": "pretty-quick \"*.ts\" --write --staged",
+    "lint": "eslint -c .eslintrc.js --ext .ts,.js .",
+    "lint:fix": "yarn eslint --fix"
+  },
+  "dependencies": {
+    "ccxt": "1.59.1",
+    "commander": "8.3.0",
+    "mkdirp": "1.0.4"
+  },
+  "devDependencies": {
+    "@babel/core": "7.15.8",
+    "@babel/eslint-parser": "7.15.8",
+    "@commitlint/cli": "13.2.1",
+    "@commitlint/config-conventional": "13.2.0",
+    "@rollup/plugin-json": "4.1.0",
+    "@rollup/plugin-node-resolve": "13.0.6",
+    "@semantic-release/changelog": "6.0.0",
+    "@semantic-release/commit-analyzer": "9.0.1",
+    "@semantic-release/git": "10.0.0",
+    "@semantic-release/github": "8.0.1",
+    "@semantic-release/npm": "8.0.2",
+    "@semantic-release/release-notes-generator": "10.0.2",
+    "@types/mkdirp": "1.0.2",
+    "@types/node": "16.11.4",
+    "@typescript-eslint/eslint-plugin": "5.1.0",
+    "@typescript-eslint/parser": "5.1.0",
+    "builtin-modules": "3.2.0",
+    "cross-env": "7.0.3",
+    "dotenv-cli": "4.0.0",
+    "dts-bundle-generator": "5.9.0",
+    "esbuild": "0.13.9",
+    "eslint": "8.1.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-import": "2.25.2",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-security": "1.4.0",
+    "eslint-plugin-sonarjs": "0.10.0",
+    "husky": "7.0.4",
+    "lint-staged": "11.2.4",
+    "npm-run-all": "4.1.5",
+    "patch-package": "6.4.7",
+    "pkg": "5.3.3",
+    "prettier": "2.4.1",
+    "pretty-quick": "3.1.1",
+    "rimraf": "3.0.2",
+    "rollup": "2.58.0",
+    "rollup-plugin-auto-external": "2.0.0",
+    "rollup-plugin-esbuild": "4.6.0",
+    "rollup-plugin-node-builtins": "2.1.2",
+    "semantic-release": "18.0.0",
+    "ts-node": "10.4.0",
+    "typescript": "4.4.4"
+  },
+  "engines": {
+    "node": ">= 14.x.x"
+  },
+  "lint-staged": {
+    "**/*.ts": [
+      "yarn format"
+    ]
+  },
+  "pkg": {
+    "scripts": [],
+    "assets": [],
+    "targets": [
+      "node14-linux-x64"
+    ]
+  }
+}
