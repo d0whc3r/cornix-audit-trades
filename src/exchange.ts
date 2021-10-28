@@ -2,7 +2,6 @@ import * as ccxt from 'ccxt';
 
 export enum Exchange {
   BINANCE = 'binance',
-  'BINANCE FUTURES' = 'binance futures',
   KRAKEN = 'kraken',
   BITMEX = 'bitmex',
   FTX = 'ftx',
@@ -12,14 +11,21 @@ export enum Exchange {
   BITTREX = 'bittrex'
 }
 
+export type ExchangeInfo = {
+  name: Exchange;
+  futures?: boolean;
+  apiKey: string;
+  apiSecret: string;
+};
+
 export type ValidExchange = ccxt.binance | ccxt.ftx | ccxt.huobipro | ccxt.bitmex | ccxt.kraken | ccxt.kucoin | ccxt.okex;
 
 const EXCHANGES = new Map<Exchange, ValidExchange>();
 
-async function getExchange(exchange: Exchange) {
-  if (!EXCHANGES.has(exchange)) {
+export async function getExchange({ apiSecret, apiKey, name, futures }: ExchangeInfo) {
+  if (!EXCHANGES.has(name)) {
     let ex: ValidExchange;
-    switch (exchange) {
+    switch (name) {
       case Exchange.BINANCE:
         ex = new ccxt.binance();
         break;
@@ -45,24 +51,15 @@ async function getExchange(exchange: Exchange) {
         ex = new ccxt.bittrex();
         break;
       default:
-        console.error('Unknown exchange', exchange);
+        console.error('Unknown exchange', name);
         return undefined;
     }
     ex.enableRateLimit = true;
-    ex.options.defaultType = 'future';
+    ex.options.defaultType = futures ? 'future' : 'spot';
+    ex.apiKey = apiKey;
+    ex.secret = apiSecret;
     await ex.loadMarkets(true);
-    EXCHANGES.set(exchange, ex);
+    EXCHANGES.set(name, ex);
   }
-  return EXCHANGES.get(exchange)!;
-}
-
-export function parsePrice(ticker: string, price: number, exchange = Exchange.BINANCE) {
-  return getExchange(exchange).then((ex) => {
-    if (ex) {
-      const market = ex.market(ticker);
-      const decimals = 10 ** market.precision.price;
-      return Math.round(price * decimals) / decimals;
-    }
-    return price;
-  });
+  return EXCHANGES.get(name)!;
 }

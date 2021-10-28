@@ -25,7 +25,7 @@
     "strictNullChecks": true,
     "target": "ES5",
     "traceResolution": false,
-    "types": ["node"]
+    "types": ["node", "jest", "jest-extended", "jest-chain"]
   },
   "include": ["**/*.ts", "./types"],
   "exclude": ["node_modules/**/*"]
