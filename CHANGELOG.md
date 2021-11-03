@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/d0whc3r/cornix-audit-trades/compare/v1.0.2...v1.0.3) (2021-11-03)
+
+
+### Bug Fixes
+
+* add npm for semantic-release ([989f00c](https://github.com/d0whc3r/cornix-audit-trades/commit/989f00cbe817cb1a23b27184f5205130908ec1af))
+
 ## [1.0.2](https://github.com/d0whc3r/cornix-audit-trades/compare/v1.0.1...v1.0.2) (2021-11-03)
 
 
