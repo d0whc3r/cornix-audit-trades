@@ -1,4 +1,3 @@
-/* eslint-disable sonarjs/no-duplicate-string */
 export interface ExchangeSignalsDataInfo {
   time_passed: string;
   entry_progress: number;
@@ -31,56 +30,6 @@ export type SignalsDataDataContent = Map<string, ExchangeSignalsData[]>;
 export interface ISignalsDataDataContent {
   [exchange: string]: IExchangeSignalsData;
 }
-
-// export interface Header {
-//   'Signal Status'?: any;
-//   Exchanges?: any;
-// }
-//
-// export interface Values {
-//   'Signal Status': string[];
-//   Exchanges: string[];
-// }
-//
-// export interface ButtonType {
-//   Exchanges: string;
-//   'Signal Status': string;
-// }
-
-// export interface Filters {
-//   headers: Header[];
-//   values: Values;
-//   button_type: ButtonType;
-// }
-
-// export interface Balance {
-//   USD: number;
-//   BTC: number;
-// }
-
-// export interface ExchangeDataSymbol {
-//   price: number;
-//   quantity: number;
-//   amount: number;
-// }
-
-// export interface IExchangeData {
-//   [symbol: string]: ExchangeDataSymbol;
-// }
-
-// export interface IExchanges {
-//   [exchange: string]: IExchangeData;
-// }
-
-// export type ExchangeData = Map<string, ExchangeDataSymbol>;
-// export type Exchanges = Map<string, ExchangeData>;
-
-// export interface Precision {
-//   default: number;
-//   balance: Balance;
-//   percent: number;
-//   exchanges: Exchanges;
-// }
 
 export interface SignalsDataData {
   data: SignalsDataDataContent;

@@ -1,61 +1,6 @@
-/* eslint-disable sonarjs/no-duplicate-string */
 import { JsonObject, JsonProperty } from 'json2typescript';
 import { SignalsDataDataContentConverter } from '../../converter/signalsdata-data-content.converter';
 import { ExchangeSignalsData, ExchangeSignalsDataInfo, RiskReward, SignalsDataData, SignalsDataResponse } from './signals-data.type';
-
-// @JsonObject('HeaderEntity')
-// export class HeaderEntity implements Header {
-//   @JsonProperty('Signal Status', Any, true)
-//   'Signal Status'?: any = null;
-//   @JsonProperty('Exchanges', Any, true)
-//   Exchanges?: any = null;
-// }
-//
-// @JsonObject('ValuesEntity')
-// export class ValuesEntity implements Values {
-//   @JsonProperty('Signal Status', [String], true)
-//   'Signal Status': string[] = [];
-//   @JsonProperty('Exchanges', [String], true)
-//   Exchanges: string[] = [];
-// }
-//
-// @JsonObject('ButtonTypeEntity')
-// export class ButtonTypeEntity implements ButtonType {
-//   @JsonProperty('Signal Status', String, true)
-//   'Signal Status' = '';
-//   @JsonProperty('Exchanges', String, true)
-//   Exchanges = '';
-// }
-//
-// @JsonObject('FiltersEntity')
-// export class FiltersEntity implements Filters {
-//   @JsonProperty('headers', [HeaderEntity])
-//   headers: Header[] = [];
-//   @JsonProperty('values', ValuesEntity)
-//   values = new ValuesEntity();
-//   @JsonProperty('button_type', ButtonTypeEntity)
-//   button_type = new ButtonTypeEntity();
-// }
-//
-// @JsonObject('BalanceEntity')
-// export class BalanceEntity implements Balance {
-//   @JsonProperty('USD', Number)
-//   USD = 0;
-//   @JsonProperty('BTC', Number)
-//   BTC = 0;
-// }
-//
-// @JsonObject('PrecisionEntity')
-// export class PrecisionEntity implements Precision {
-//   @JsonProperty('default', Number)
-//   default = 0;
-//   @JsonProperty('balance', BalanceEntity)
-//   balance = new BalanceEntity();
-//   @JsonProperty('percent', Number)
-//   percent = 0;
-//   @JsonProperty('exchanges', ExchangesConverter)
-//   exchanges: Exchanges = new Map<string, ExchangeData>();
-// }
 
 @JsonObject('RiskRewardEntity')
 export class RiskRewardEntity implements RiskReward {
@@ -110,10 +55,6 @@ export class SignalsDataDataEntity implements SignalsDataData {
   data = new Map<string, ExchangeSignalsDataEntity[]>();
   @JsonProperty('headers', [String])
   headers: string[] = [];
-  // @JsonProperty('filters', FiltersEntity)
-  // filters = new FiltersEntity();
-  // @JsonProperty('precision', PrecisionEntity)
-  // precision = new PrecisionEntity();
   @JsonProperty('info_link', String)
   info_link = '';
 }

@@ -1,21 +1,35 @@
 import fs from 'fs';
+import inquirer from 'inquirer';
 import mkdirp from 'mkdirp';
 import path from 'path';
 import { CornixConnection } from './api/axios-cornix';
 import { ExchangeSignalsDataEntity } from './api/entity/signals-data/signals-data.entity';
-import { Config, formatDate, formatDecimal, timeToHours } from './config';
+import { Config, formatDate, formatDecimal, timeToHours, wait } from './config';
+
+type SelectChannelDetail = {
+  id: number;
+  name: string;
+};
+
+type SelectChannelsResult = {
+  groups: SelectChannelDetail[];
+};
 
 const OUT_FILE = path.join('./out', 'statistics.csv');
-const cornix = new CornixConnection(Config.AUTH_TOKEN, Config.REFRESH_TOKEN);
+const CHANNELS_IN_ROW = 4;
+const SECS_DELAY = 3;
+const SECS_BIG_DELAY = 10;
+let cornix: CornixConnection;
 
 function writeTrades(text: string) {
-  const headers = 'Exchange,Date,Symbol,"Duration (hours)",Position,Type,Channel,"Entry Progress","TP Progress",Profit,Potential,"Risk/Reward"';
+  const headers =
+    'Exchange,Date,Symbol,Status,"Duration (hours)",Position,Type,Channel,"Entry Progress","TP Progress",Profit,Potential,"Risk/Reward"';
   mkdirp.sync(path.dirname(OUT_FILE));
   // eslint-disable-next-line security/detect-non-literal-fs-filename
   fs.writeFileSync(OUT_FILE, [headers, text.replace(/\n\n/g, '\n')].join('\n'));
 }
 
-function generateCsvContent(trades: Map<string, ExchangeSignalsDataEntity[]>) {
+function generateCsvContent(trades: Map<string, ExchangeSignalsDataEntity[]>, isOpen: boolean) {
   if (!trades) {
     return '';
   }
@@ -27,6 +41,7 @@ function generateCsvContent(trades: Map<string, ExchangeSignalsDataEntity[]>) {
       const rowInfo = [
         formatDate(date),
         symbol,
+        isOpen ? 'Open' : 'Closed',
         formatDecimal(timeToHours(time_passed)),
         position,
         type,
@@ -44,44 +59,60 @@ function generateCsvContent(trades: Map<string, ExchangeSignalsDataEntity[]>) {
   return body.join('\n');
 }
 
-async function getTrades(channelId: number) {
-  console.log('[?] Extracting channel', channelId);
+async function getTrades(channelId: number, name: string) {
+  console.log(`[?] Extracting channel "${name}"`);
   const closedTrades = await cornix.getClosedTrades(channelId);
-  const openTrades = await cornix.getOpenTrades(channelId);
   const trades: string[] = [];
   if (closedTrades) {
-    trades.push(generateCsvContent(closedTrades));
+    trades.push(generateCsvContent(closedTrades, true));
   }
-  if (openTrades) {
-    trades.push(generateCsvContent(openTrades));
+  if (Config.INCLUDE_OPEN) {
+    const openTrades = await cornix.getOpenTrades(channelId);
+    if (openTrades) {
+      trades.push(generateCsvContent(openTrades, false));
+    }
   }
   return trades.join('\n');
 }
 
-function wait(secs: number) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(true);
-    }, secs * 1000);
-  });
+async function selectChannels(): Promise<SelectChannelsResult | undefined> {
+  const response = await cornix.getChannels();
+  if (response?.data) {
+    const choices = Array.from(response.data.entries()).map(([value, name]) => ({ value: { id: value, name }, name }));
+    const result = await inquirer.prompt<SelectChannelsResult>([
+      {
+        type: 'checkbox',
+        name: 'groups',
+        message: 'Select channels to dump',
+        choices
+      }
+    ]);
+    if (!result.groups.length) {
+      console.log('[-] No groups selected, please select one or more groups');
+      return selectChannels();
+    }
+    return result;
+  }
+  return undefined;
 }
 
 async function extractor() {
-  const channelsId = [
-    2260, 5065, 5316, 6294, 4955, 4957, 4958, 5585, 5605, 5958, 6610, 6627, 6631, 7465, 6683, 6767, 6719, 6886, 6867, 6870, 6868, 6370, 7037, 4286,
-    3922, 3985, 3923, 4048, 673
-  ].filter((x, i, a) => a.indexOf(x) === i);
-  // const channelsId = [2260, 5065].filter((x, i, a) => a.indexOf(x) === i);
-  const delay = 3;
-  const bigDelay = 10;
+  cornix = new CornixConnection(Config.ACCESS_TOKEN, Config.REFRESH_TOKEN);
+  const channelsId = await selectChannels();
+  if (!channelsId) {
+    console.log('[!] No channels found');
+    process.exit(0);
+  }
+  const { groups } = channelsId;
   const result: string[] = [];
-  for (let i = 0; i < channelsId.length; i++) {
+  for (let i = 0; i < groups.length; i++) {
     if (i !== 0) {
-      const d = i % 4 ? delay : bigDelay;
+      const d = i % (CHANNELS_IN_ROW - 1) ? SECS_DELAY : SECS_BIG_DELAY;
       console.log(`[?] Waiting ${d}secs`);
       await wait(d);
     }
-    result.push(await getTrades(channelsId[+i]));
+    const { name, id } = groups[+i];
+    result.push(await getTrades(id, name));
   }
   writeTrades(result.join('\n'));
 }

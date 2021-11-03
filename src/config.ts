@@ -1,12 +1,16 @@
-export class Config {
-  static _AUTH_TOKEN = process.env.AUTH_TOKEN || '';
+function isTrue(txt = '') {
+  return [true, 1, '1', 'true'].includes(txt);
+}
 
-  static get AUTH_TOKEN() {
-    return this._AUTH_TOKEN;
+export class Config {
+  static _ACCESS_TOKEN = process.env.ACCESS_TOKEN || '';
+
+  static get ACCESS_TOKEN() {
+    return this._ACCESS_TOKEN;
   }
 
-  static set AUTH_TOKEN(item) {
-    this._AUTH_TOKEN = item;
+  static set ACCESS_TOKEN(item) {
+    this._ACCESS_TOKEN = item;
   }
 
   static _REFRESH_TOKEN = process.env.REFRESH_TOKEN || '';
@@ -19,7 +23,7 @@ export class Config {
     this._REFRESH_TOKEN = item;
   }
 
-  static _REPLACE_DOTS = [true, 1, '1', 'true'].includes(process.env.REPLACE_DOTS || '');
+  static _REPLACE_DOTS = isTrue(process.env.REPLACE_DOTS);
 
   static get REPLACE_DOTS() {
     return this._REPLACE_DOTS;
@@ -27,6 +31,16 @@ export class Config {
 
   static set REPLACE_DOTS(item) {
     this._REPLACE_DOTS = item;
+  }
+
+  static _INCLUDE_OPEN = isTrue(process.env.INCLUDE_OPEN);
+
+  static get INCLUDE_OPEN() {
+    return this._INCLUDE_OPEN;
+  }
+
+  static set INCLUDE_OPEN(item) {
+    this._INCLUDE_OPEN = item;
   }
 }
 
@@ -62,4 +76,12 @@ export function formatDecimal(num: number | string) {
     return n.toString().replace('.', ',');
   }
   return n.toString();
+}
+
+export function wait(secs: number) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(true);
+    }, secs * 1000);
+  });
 }

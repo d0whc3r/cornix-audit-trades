@@ -1,12 +1,13 @@
 import { JsonObject, JsonProperty } from 'json2typescript';
-import { GroupID, GroupName, SignalGroupsResponse, SignalGroupsData } from './signal-groups.type';
+import { SignalGroupsDataDataConverter } from '../../converter/signal-groups-data-data.converter';
+import { SignalGroupsData, SignalGroupsResponse } from './signal-groups.type';
 
 @JsonObject('SignalGroupsDataEntity')
 export class SignalGroupsDataEntity implements SignalGroupsData {
-  @JsonProperty('data', [Number, String])
-  data: [GroupID, GroupName][] = [];
-  @JsonProperty('headers', [String])
-  headers: string[] = [];
+  @JsonProperty('data', SignalGroupsDataDataConverter)
+  data = new Map<number, string>();
+  // @JsonProperty('headers', [String])
+  // headers: string[] = [];
 }
 
 @JsonObject('SignalGroupsResponseEntity')
