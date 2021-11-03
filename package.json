@@ -1,6 +1,7 @@
 {
-  "name": "audit-trades",
-  "version": "1.0.0",
+  "name": "@d0whc3r/audit-trades",
+  "private": true,
+  "version": "1.0.1",
   "license": "MIT",
   "author": {
     "email": "d0whc3r@gmail.com",
@@ -9,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/d0whc3r/audit-trades.git"
+    "url": "https://github.com/d0whc3r/cornix-audit-trades.git"
   },
   "bin": {
     "audit-trades": "./dist/audit-trades.cjs.js"
@@ -27,7 +28,8 @@
     "trades",
     "futures",
     "spot",
-    "btc"
+    "btc",
+    "cornix"
   ],
   "scripts": {
     "start": "dotenv -e .env -- node --loader ts-node/esm src/index.ts",
