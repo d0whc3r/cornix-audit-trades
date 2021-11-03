@@ -41,7 +41,7 @@ function generateCsvContent(trades: Map<string, ExchangeSignalsDataEntity[]>, is
       const rowInfo = [
         formatDate(date),
         symbol,
-        isOpen ? 'Open' : 'Closed',
+        isOpen ? 'Opened' : 'Closed',
         formatDecimal(timeToHours(time_passed)),
         position,
         type,
@@ -64,12 +64,12 @@ async function getTrades(channelId: number, name: string) {
   const closedTrades = await cornix.getClosedTrades(channelId);
   const trades: string[] = [];
   if (closedTrades) {
-    trades.push(generateCsvContent(closedTrades, true));
+    trades.push(generateCsvContent(closedTrades, false));
   }
   if (Config.INCLUDE_OPEN) {
     const openTrades = await cornix.getOpenTrades(channelId);
     if (openTrades) {
-      trades.push(generateCsvContent(openTrades, false));
+      trades.push(generateCsvContent(openTrades, true));
     }
   }
   return trades.join('\n');
