@@ -20,9 +20,9 @@ module.exports = {
       '@semantic-release/github',
       {
         assets: [
-          { path: 'telegram-crypto-scraper-linux', label: 'Linux binary' },
-          { path: 'telegram-crypto-scraper-macos', label: 'Macos binary' },
-          { path: 'telegram-crypto-scraper-win.exe', label: 'Windows binary' }
+          { path: 'audit-trades-linux', label: 'Linux binary' },
+          { path: 'audit-trades-macos', label: 'Macos binary' },
+          { path: 'audit-trades-win.exe', label: 'Windows binary' }
         ]
       }
     ],
