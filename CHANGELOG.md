@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/d0whc3r/cornix-audit-trades/compare/v1.0.3...v1.0.4) (2021-11-03)
+
+
+### Bug Fixes
+
+* open/close column ([bccf35b](https://github.com/d0whc3r/cornix-audit-trades/commit/bccf35bfdf698dff4cced8b8e8ae11ccb649ada9))
+
 ## [1.0.3](https://github.com/d0whc3r/cornix-audit-trades/compare/v1.0.2...v1.0.3) (2021-11-03)
 
 
