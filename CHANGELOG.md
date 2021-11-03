@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/d0whc3r/audit-trades/compare/v1.0.0...v1.0.1) (2021-11-03)
+
+
+### Bug Fixes
+
+* update deps and remove npm from release ([a021205](https://github.com/d0whc3r/audit-trades/commit/a021205ce0369875ea1279a46c126e4957e9c3f5))
+
 # 1.0.0 (2021-11-03)
 
 
