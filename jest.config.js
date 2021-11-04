@@ -23,7 +23,7 @@ module.exports = {
   testEnvironment: 'node',
   globals: {
     'ts-jest': {
-      tsConfig: {
+      tsconfig: {
         sourceMap: true,
         inlineSourceMap: true
       },

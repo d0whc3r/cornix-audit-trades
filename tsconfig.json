@@ -6,7 +6,6 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "lib": ["ESNext", "es2016", "es6", "es2015", "dom"],
-    //    "module": "ES6",
     "module": "CommonJS",
     "moduleResolution": "Node",
     "noEmitOnError": true,
