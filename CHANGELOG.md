@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/d0whc3r/cornix-audit-trades/compare/v1.0.4...v1.0.5) (2021-11-13)
+
+
+### Bug Fixes
+
+* update status name ([4797537](https://github.com/d0whc3r/cornix-audit-trades/commit/4797537be1825824bbd4358fc5a4c719d4eb7265))
+
 ## [1.0.4](https://github.com/d0whc3r/cornix-audit-trades/compare/v1.0.3...v1.0.4) (2021-11-03)
 
 
