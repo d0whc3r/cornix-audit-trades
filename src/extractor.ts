@@ -41,7 +41,7 @@ function generateCsvContent(trades: Map<string, ExchangeSignalsDataEntity[]>, is
       const rowInfo = [
         formatDate(date),
         symbol,
-        isOpen ? 'Opened' : 'Closed',
+        isOpen ? 'Open' : 'Closed',
         formatDecimal(timeToHours(time_passed)),
         position,
         type,
