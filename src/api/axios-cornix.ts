@@ -3,7 +3,8 @@ import axios, { AxiosError, AxiosInstance } from 'axios';
 import { JsonConvert } from 'json2typescript';
 import { SignalGroupsDataEntity } from './entity/signal-groups/signal-groups.entity';
 import { SignalGroupsResponse } from './entity/signal-groups/signal-groups.type';
-import { ExchangeSignalsDataEntity, SignalsDataResponseEntity } from './entity/signals-data/signals-data.entity';
+import { ExchangeSignalsDataEntity } from './entity/signals-data/exchange-signals-data.entity';
+import { SignalsDataResponseEntity } from './entity/signals-data/signals-data.entity';
 import { SignalsDataResponse } from './entity/signals-data/signals-data.type';
 
 export class CornixConnection {

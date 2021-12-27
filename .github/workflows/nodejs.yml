@@ -26,6 +26,8 @@ jobs:
         run: yarn install --frozen-lockfile --check-files
       - name: Build
         run: yarn build
+      - name: Test
+        run: yarn test:coverage
       - name: Release
         run: yarn semantic-release
         env:

@@ -3,7 +3,7 @@ import inquirer from 'inquirer';
 import mkdirp from 'mkdirp';
 import path from 'path';
 import { CornixConnection } from './api/axios-cornix';
-import { ExchangeSignalsDataEntity } from './api/entity/signals-data/signals-data.entity';
+import { ExchangeSignalsDataEntity } from './api/entity/signals-data/exchange-signals-data.entity';
 import { Config, formatDate, formatDecimal, timeToHours, wait } from './config';
 
 type SelectChannelDetail = {

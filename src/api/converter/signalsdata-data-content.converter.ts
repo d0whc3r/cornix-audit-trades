@@ -1,5 +1,5 @@
 import { JsonConvert, JsonConverter, JsonCustomConvert } from 'json2typescript';
-import { ExchangeSignalsDataEntity } from '../entity/signals-data/signals-data.entity';
+import { ExchangeSignalsDataEntity } from '../entity/signals-data/exchange-signals-data.entity';
 import { ExchangeSignalsData, ISignalsDataDataContent, RiskReward } from '../entity/signals-data/signals-data.type';
 
 function parseRiskReward(rr: string | null): RiskReward {
