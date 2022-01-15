@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import axios, { AxiosError, AxiosInstance } from 'axios';
 import { JsonConvert } from 'json2typescript';
+import { SignalsExtraInfoDataEntity } from './entity/signal-extra-info/signals-extra-info.entity';
+import { SignalsExtraInfo } from './entity/signal-extra-info/signals-extra-info.types';
 import { SignalGroupsDataEntity } from './entity/signal-groups/signal-groups.entity';
 import { SignalGroupsResponse } from './entity/signal-groups/signal-groups.type';
 import { ExchangeSignalsDataEntity } from './entity/signals-data/exchange-signals-data.entity';
@@ -57,10 +59,20 @@ export class CornixConnection {
       .catch((e: Error | AxiosError) => this.renewToken(e, async () => this.getOpenTrades(channelId)));
   }
 
+  getTradeInfo(signalId: number): Promise<SignalsExtraInfoDataEntity | undefined> | undefined {
+    return this.api
+      ?.post<SignalsExtraInfo>('get_signal_extra_info_general/', {
+        for_admin: false,
+        signal_id: signalId
+      })
+      .then(({ data: { data } }) => this.jsonConvert.deserializeObject(data, SignalsExtraInfoDataEntity))
+      .catch((e: Error | AxiosError) => this.renewToken(e, async () => this.getTradeInfo(signalId)));
+  }
+
   private renewToken<T>(e: Error | AxiosError, fn: () => Promise<T>) {
     if (axios.isAxiosError(e)) {
       const { response } = e;
-      console.error('[!] ERROR, Cornix get channels', response?.status, e.message);
+      console.error('[!] ERROR, Cornix', response?.status, e.message);
       if (response?.status && [401, 400].includes(response?.status)) {
         return this.reTry<T | undefined>(async () => {
           const refreshed = await this.doRefreshToken();

@@ -29,20 +29,30 @@ function writeTrades(text: string) {
   fs.writeFileSync(OUT_FILE, [headers, text.replace(/\n\n/g, '\n')].join('\n'));
 }
 
-function generateCsvContent(trades: Map<string, ExchangeSignalsDataEntity[]>, isOpen: boolean) {
+async function generateCsvContent(trades: Map<string, ExchangeSignalsDataEntity[]>, isOpen: boolean) {
   if (!trades) {
     return '';
   }
   const body: string[] = [];
-  Array.from(trades.entries()).forEach(([exchange, infos]) => {
+  for (const [exchange, infos] of Array.from(trades.entries())) {
     const rowBase = [exchange];
     const rows: string[] = [];
-    infos.forEach(({ date, symbol, info: { time_passed, entry_progress, take_profit_progress, profit }, position, type, group, potential, rr }) => {
+    for (const {
+      date,
+      signalId,
+      symbol,
+      info: { time_passed, entry_progress, take_profit_progress, profit },
+      position,
+      type,
+      group,
+      potential,
+      rr
+    } of infos) {
       const rowInfo = [
         formatDate(date),
         symbol,
         isOpen ? 'Open' : 'Closed',
-        formatDecimal(timeToHours(time_passed)),
+        formatDecimal(await timeToHours(date, { isOpen, time_passed, signalId, cornix })),
         position,
         type,
         group,
@@ -53,9 +63,9 @@ function generateCsvContent(trades: Map<string, ExchangeSignalsDataEntity[]>, is
         formatDecimal(rr.calculateRR())
       ];
       rows.push(`"${[...rowBase, ...rowInfo].join('","')}"`);
-    });
+    }
     body.push(rows.join('\n'));
-  });
+  }
   return body.join('\n');
 }
 
@@ -64,12 +74,12 @@ async function getTrades(channelId: number, name: string) {
   const closedTrades = await cornix.getClosedTrades(channelId);
   const trades: string[] = [];
   if (closedTrades) {
-    trades.push(generateCsvContent(closedTrades, false));
+    trades.push(await generateCsvContent(closedTrades, false));
   }
   if (Config.INCLUDE_OPEN) {
     const openTrades = await cornix.getOpenTrades(channelId);
     if (openTrades) {
-      trades.push(generateCsvContent(openTrades, true));
+      trades.push(await generateCsvContent(openTrades, true));
     }
   }
   return trades.join('\n');

@@ -25,9 +25,10 @@ export class SignalsDataDataContentConverter implements JsonCustomConvert<Map<st
     Object.entries(data).forEach(([exchange, { signal_cards }]) => {
       const signalData: ExchangeSignalsDataEntity[] = [];
       signal_cards.forEach((card) => {
-        const [, , symbol, , dateTime, info, extra] = card;
+        const [, signalId, symbol, , dateTime, info, extra] = card;
         const [[, position], [, type], [, group], , [, riskReward], [, potential]] = extra;
         const signal: ExchangeSignalsData = {
+          signalId,
           symbol,
           date: new Date(dateTime * 1000),
           // info: jsonConvert.deserializeObject(info, ExchangeSignalsDataInfoEntity),

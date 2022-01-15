@@ -30,6 +30,8 @@ export class RiskRewardEntity implements RiskReward {
 
 @JsonObject('ExchangeSignalsDataEntity')
 export class ExchangeSignalsDataEntity implements ExchangeSignalsData {
+  @JsonProperty('signalId', Number)
+  signalId = 0;
   @JsonProperty('symbol', String)
   symbol = '';
   @JsonProperty('date', Date)

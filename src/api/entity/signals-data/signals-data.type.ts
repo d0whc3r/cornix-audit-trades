@@ -11,6 +11,7 @@ export interface RiskReward {
 }
 
 export interface ExchangeSignalsData {
+  signalId: number;
   symbol: string;
   date: Date;
   info: ExchangeSignalsDataInfo;
