@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.7](https://github.com/d0whc3r/cornix-audit-trades/compare/v1.0.6...v1.0.7) (2022-01-16)
+
+
+### Bug Fixes
+
+* add precise option to distinct "m" from month and minute ([5774868](https://github.com/d0whc3r/cornix-audit-trades/commit/57748683c7120aef6d5434f0ba93e171c8872702))
+
 ## [1.0.6](https://github.com/d0whc3r/cornix-audit-trades/compare/v1.0.5...v1.0.6) (2021-12-27)
 
 
