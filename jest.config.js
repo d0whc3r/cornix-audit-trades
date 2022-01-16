@@ -13,9 +13,9 @@ module.exports = {
       // functions: 80,
       // lines: 80
       // statements: -10
-      branches: 20,
-      functions: 20,
-      lines: 20
+      branches: 0,
+      functions: 0,
+      lines: 0
     }
   },
   cache: false,
