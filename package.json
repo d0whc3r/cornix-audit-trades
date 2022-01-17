@@ -89,7 +89,7 @@
     "dotenv-cli": "4.1.1",
     "dts-bundle-generator": "6.4.0",
     "esbuild": "0.14.11",
-    "eslint": "8.6.0",
+    "eslint": "8.7.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-import": "2.25.4",
     "eslint-plugin-prettier": "4.0.0",
