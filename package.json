@@ -59,7 +59,7 @@
   },
   "dependencies": {
     "axios": "0.26.1",
-    "commander": "9.0.0",
+    "commander": "9.1.0",
     "inquirer": "8.2.1",
     "json2typescript": "1.5.0-rc.0",
     "mkdirp": "1.0.4"
