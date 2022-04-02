@@ -12,13 +12,13 @@ describe('Config functions', () => {
     //   7m2w2d3h | ${7 * 30 * 24 + 2 * 7 * 24 + 2 * 24 + 3}
     // `
     it.each([
-      { text: '3m', expected: 3 * 30 * 24 },
-      { text: '7w', expected: 7 * 7 * 24 },
-      { text: '2d', expected: 2 * 24 },
+      { text: '3M', expected: 3 * 30 * 24 },
+      { text: '7W', expected: 7 * 7 * 24 },
+      { text: '2D', expected: 2 * 24 },
       { text: '3h', expected: 3 },
-      { text: '3min', expected: 0 },
-      { text: '7m2w2d3h', expected: 7 * 30 * 24 + 2 * 7 * 24 + 2 * 24 + 3 },
-      { text: '7m2w2d3h5min', expected: 7 * 30 * 24 + 2 * 7 * 24 + 2 * 24 + 3 }
+      { text: '3m', expected: 3 / 60 },
+      { text: '7M2W2D3h', expected: 7 * 30 * 24 + 2 * 7 * 24 + 2 * 24 + 3 },
+      { text: '7M2W2D3h5m', expected: Math.floor((7 * 30 * 24 + 2 * 7 * 24 + 2 * 24 + 3 + 5 / 60) * 100) / 100 }
     ])('Parse $text', ({ text, expected }) => {
       const result = timeToHoursByString(text);
       expect(result).toBe(expected);
