@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.8](https://github.com/d0whc3r/cornix-audit-trades/compare/v1.0.7...v1.0.8) (2022-04-02)
+
+
+### Bug Fixes
+
+* update help message for -c or -p usage ([cbd9129](https://github.com/d0whc3r/cornix-audit-trades/commit/cbd912984e5ac2bc455bb7c8512b37d36277dbae))
+* update user profit ([f408d2f](https://github.com/d0whc3r/cornix-audit-trades/commit/f408d2ffe7870fb1a89121b13702d95078b27b2c))
+
 ## [1.0.7](https://github.com/d0whc3r/cornix-audit-trades/compare/v1.0.6...v1.0.7) (2022-01-16)
 
 
