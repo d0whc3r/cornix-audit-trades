@@ -1,114 +1,16 @@
-import fs from 'fs';
-import inquirer from 'inquirer';
-import mkdirp from 'mkdirp';
-import path from 'path';
 import { CornixConnection } from './api/axios-cornix';
-import { ExchangeSignalsDataEntity } from './api/entity/signals-data/exchange-signals-data.entity';
-import { Config, formatDate, formatDecimal, timeToHours, wait } from './config';
+import { ExchangeAccounts } from './api/entity/closed-signals/closed-signals.type';
+import { getTrades, selectChannels, writeTrades } from './channel-info';
+import { Config, formatDate, formatDecimal, getDay, getMonth, getOpenDate, timeToHoursByString, wait } from './config';
+import { writeProfits } from './profits';
 
-type SelectChannelDetail = {
-  id: number;
-  name: string;
-};
-
-type SelectChannelsResult = {
-  groups: SelectChannelDetail[];
-};
-
-const OUT_FILE = path.join('./out', 'statistics.csv');
 const CHANNELS_IN_ROW = 4;
 const SECS_DELAY = 3;
 const SECS_BIG_DELAY = 10;
 let cornix: CornixConnection;
 
-function writeTrades(text: string) {
-  const headers =
-    'Exchange,Date,Symbol,Status,"Duration (hours)",Position,Type,Channel,"Entry Progress","TP Progress",Profit,Potential,"Risk/Reward"';
-  mkdirp.sync(path.dirname(OUT_FILE));
-  // eslint-disable-next-line security/detect-non-literal-fs-filename
-  fs.writeFileSync(OUT_FILE, [headers, text.replace(/\n\n/g, '\n')].join('\n'));
-}
-
-async function generateCsvContent(trades: Map<string, ExchangeSignalsDataEntity[]>, isOpen: boolean) {
-  if (!trades) {
-    return '';
-  }
-  const body: string[] = [];
-  for (const [exchange, infos] of Array.from(trades.entries())) {
-    const rowBase = [exchange];
-    const rows: string[] = [];
-    for (const {
-      date,
-      signalId,
-      symbol,
-      info: { time_passed, entry_progress, take_profit_progress, profit },
-      position,
-      type,
-      group,
-      potential,
-      rr
-    } of infos) {
-      const rowInfo = [
-        formatDate(date),
-        symbol,
-        isOpen ? 'Open' : 'Closed',
-        formatDecimal(await timeToHours(date, { isOpen, time_passed, signalId, cornix })),
-        position,
-        type,
-        group,
-        formatDecimal(entry_progress),
-        formatDecimal(take_profit_progress),
-        formatDecimal(profit * 100),
-        formatDecimal(potential),
-        formatDecimal(rr.calculateRR())
-      ];
-      rows.push(`"${[...rowBase, ...rowInfo].join('","')}"`);
-    }
-    body.push(rows.join('\n'));
-  }
-  return body.join('\n');
-}
-
-async function getTrades(channelId: number, name: string) {
-  console.log(`[?] Extracting channel "${name}"`);
-  const closedTrades = await cornix.getClosedTrades(channelId);
-  const trades: string[] = [];
-  if (closedTrades) {
-    trades.push(await generateCsvContent(closedTrades, false));
-  }
-  if (Config.INCLUDE_OPEN) {
-    const openTrades = await cornix.getOpenTrades(channelId);
-    if (openTrades) {
-      trades.push(await generateCsvContent(openTrades, true));
-    }
-  }
-  return trades.join('\n');
-}
-
-async function selectChannels(): Promise<SelectChannelsResult | undefined> {
-  const response = await cornix.getChannels();
-  if (response?.data) {
-    const choices = Array.from(response.data.entries()).map(([value, name]) => ({ value: { id: value, name }, name }));
-    const result = await inquirer.prompt<SelectChannelsResult>([
-      {
-        type: 'checkbox',
-        name: 'groups',
-        message: 'Select channels to dump',
-        choices
-      }
-    ]);
-    if (!result.groups.length) {
-      console.log('[-] No groups selected, please select one or more groups');
-      return selectChannels();
-    }
-    return result;
-  }
-  return undefined;
-}
-
-async function extractor() {
-  cornix = new CornixConnection(Config.ACCESS_TOKEN, Config.REFRESH_TOKEN);
-  const channelsId = await selectChannels();
+async function getChannelsInfo() {
+  const channelsId = await selectChannels(cornix);
   if (!channelsId) {
     console.log('[!] No channels found');
     process.exit(0);
@@ -125,6 +27,82 @@ async function extractor() {
     result.push(await getTrades(id, name));
   }
   writeTrades(result.join('\n'));
+}
+
+type ProfitExtractResult = {
+  exchange: string;
+  date: string;
+  symbol: string;
+  status: string;
+  duration: string;
+  position: string;
+  type: string;
+  account: string;
+  channel: string;
+  entry_progress: string;
+  take_profit_progress: string;
+  profit: string;
+  leverage: string;
+  potential: string;
+  day: string;
+  month: string;
+  openDate: string;
+  openDay: string;
+  openMonth: string;
+};
+
+async function getProfits() {
+  const ownClosedTrades = await cornix.getOwnClosedTrades();
+  const result: string[] = [];
+  if (ownClosedTrades) {
+    Object.entries(ownClosedTrades).forEach(([key, value]) => {
+      if (key !== 'total') {
+        Object.values(value as ExchangeAccounts).forEach(({ trade_cards }) => {
+          trade_cards.forEach((trade_card) => {
+            const [, symbol, , , , , , , , , , info, exchange, account, channel, leverage, potential_profit, , , date, position, type, status] =
+              trade_card;
+            const { profit, time_passed, take_profit_progress, entry_progress } = info;
+            const valueDate = new Date(date * 1000);
+            const duration = timeToHoursByString(time_passed);
+            const openDate = getOpenDate(valueDate, duration);
+            const content: ProfitExtractResult = {
+              exchange,
+              date: formatDate(valueDate),
+              symbol,
+              status,
+              duration: formatDecimal(duration),
+              position,
+              type,
+              account,
+              channel,
+              entry_progress: formatDecimal(entry_progress),
+              take_profit_progress: formatDecimal(take_profit_progress),
+              profit: formatDecimal(profit),
+              leverage: leverage ?? '1',
+              potential: formatDecimal(potential_profit),
+              day: getDay(valueDate),
+              month: getMonth(valueDate),
+              openDate: formatDate(openDate),
+              openDay: getDay(openDate),
+              openMonth: getMonth(openDate)
+            };
+            result.push(`"${Object.values(content).join('","')}"`);
+          });
+        });
+      }
+    });
+  }
+  writeProfits(result.join('\n'));
+}
+
+async function extractor() {
+  cornix = new CornixConnection(Config.ACCESS_TOKEN, Config.REFRESH_TOKEN);
+  if (Config.CHANNELS_INFO) {
+    await getChannelsInfo();
+  }
+  if (Config.EXTRACT_PROFITS) {
+    await getProfits();
+  }
 }
 
 export default extractor;

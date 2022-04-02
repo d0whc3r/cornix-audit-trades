@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-import axios, { AxiosError, AxiosInstance } from 'axios';
+import axios, { AxiosError, AxiosInstance, AxiosResponse } from 'axios';
 import { JsonConvert } from 'json2typescript';
+import { ClosedTrades, ClosedTradesData } from './entity/closed-signals/closed-signals.type';
 import { SignalsExtraInfoDataEntity } from './entity/signal-extra-info/signals-extra-info.entity';
 import { SignalsExtraInfo } from './entity/signal-extra-info/signals-extra-info.types';
 import { SignalGroupsDataEntity } from './entity/signal-groups/signal-groups.entity';
@@ -67,6 +68,19 @@ export class CornixConnection {
       })
       .then(({ data: { data } }) => this.jsonConvert.deserializeObject(data, SignalsExtraInfoDataEntity))
       .catch((e: Error | AxiosError) => this.renewToken(e, async () => this.getTradeInfo(signalId)));
+  }
+
+  getOwnClosedTrades(): Promise<ClosedTradesData | undefined> | undefined {
+    return this.api
+      ?.post<any, AxiosResponse<ClosedTrades>>('get_closed_trades_data/', {})
+      .then(
+        ({
+          data: {
+            data: { data }
+          }
+        }) => data
+      )
+      .catch((e: Error | AxiosError) => this.renewToken(e, async () => this.getOwnClosedTrades()));
   }
 
   private renewToken<T>(e: Error | AxiosError, fn: () => Promise<T>) {

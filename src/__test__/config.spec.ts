@@ -1,4 +1,4 @@
-import { Config, formatDecimal, timeToHoursByString } from '../config';
+import { Config, formatDate, formatDecimal, getDay, getMonth, getOpenDate, timeToHoursByString } from '../config';
 
 describe('Config functions', () => {
   describe('timeToHoursByString', () => {
@@ -32,6 +32,26 @@ describe('Config functions', () => {
     it('With dot', () => {
       Config.REPLACE_DOTS = false;
       expect(formatDecimal(3.5)).toBe('3.5');
+    });
+  });
+  it('getDay', () => {
+    const date = new Date('2020-01-03T04:05:06');
+    expect(getDay(date)).toBe('2020-01-03');
+  });
+  it('getMonth', () => {
+    const date = new Date('2020-01-03T04:05:06');
+    expect(getMonth(date)).toBe('2020-01-01');
+  });
+  describe('getOpenDate', () => {
+    it('minutes', () => {
+      const date = new Date('2020-01-03T04:05:06');
+      const diff = 5 / 60; // 5 minutes
+      expect(formatDate(getOpenDate(date, diff))).toBe('2020-01-03 04:00:06');
+    });
+    it('hours', () => {
+      const date = new Date('2020-01-03T04:05:06');
+      const diff = 2; // 2 hours
+      expect(formatDate(getOpenDate(date, diff))).toBe('2020-01-03 02:05:06');
     });
   });
 });

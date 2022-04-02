@@ -10,7 +10,8 @@ type OptionsType = {
   refresh: string;
   dot?: boolean;
   open?: boolean;
-  precise?: boolean;
+  profit?: boolean;
+  channels?: boolean;
 };
 
 const exchangeOptions = [
@@ -24,16 +25,18 @@ program
   .addOption(exchangeOptions[1])
   .addOption(new Option('-d, --dot', 'use dot as decimal separator').env('REPLACE_DOT'))
   .addOption(new Option('-o, --open', 'include open trades').env('INCLUDE_OPEN'))
-  .addOption(new Option('-p, --precise', 'include open trades').env('PRECISE_TIME').hideHelp());
+  .addOption(new Option('-c, --channels', 'extract channels info').env('CHANNELS_INFO'))
+  .addOption(new Option('-p, --profit', 'extract profits').env('EXTRACT_PROFITS'));
 
 program.parse(process.argv);
 
-const { auth, refresh, dot, open, precise } = program.opts<OptionsType>();
+const { auth, refresh, dot, open, profit, channels } = program.opts<OptionsType>();
 
 Config.ACCESS_TOKEN = auth;
 Config.REFRESH_TOKEN = refresh;
 Config.REPLACE_DOTS = !dot;
 Config.INCLUDE_OPEN = !!open;
-Config.PRECISE_TIME = !!precise;
+Config.EXTRACT_PROFITS = !!profit;
+Config.CHANNELS_INFO = !!channels;
 
 void extractor();

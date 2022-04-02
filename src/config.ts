@@ -46,14 +46,24 @@ export class Config {
     this._INCLUDE_OPEN = item;
   }
 
-  static _PRECISE_TIME = isTrue(process.env.PRECISE_TIME);
+  static _EXTRACT_PROFITS = isTrue(process.env.EXTRACT_PROFITS);
 
-  static get PRECISE_TIME() {
-    return this._PRECISE_TIME;
+  static get EXTRACT_PROFITS() {
+    return this._EXTRACT_PROFITS;
   }
 
-  static set PRECISE_TIME(item) {
-    this._PRECISE_TIME = item;
+  static set EXTRACT_PROFITS(item) {
+    this._EXTRACT_PROFITS = item;
+  }
+
+  static _CHANNELS_INFO = isTrue(process.env.CHANNELS_INFO);
+
+  static get CHANNELS_INFO() {
+    return this._CHANNELS_INFO;
+  }
+
+  static set CHANNELS_INFO(item) {
+    this._CHANNELS_INFO = item;
   }
 }
 
@@ -71,16 +81,18 @@ export function formatDate(date?: Date, local = true) {
 
 export function timeToHoursByString(time: string) {
   // eslint-disable-next-line security/detect-unsafe-regex
-  const regex = /(?<min>\d{1,5}min)?(?<month>\d{1,5}m)?(?<week>\d{1,5}w)?(?<day>\d{1,5}d)?(?<hour>\d{1,2}h)?/gi;
+  const regex = /(?<month>\d{1,5}M)?(?<week>\d{1,5}W)?(?<day>\d{1,5}D)?(?<hour>\d{1,2}h)?(?<min>\d{1,5}m)?/g;
   const match = regex.exec(time);
   if (match?.length && match.groups) {
     const { month = '0', week = '0', day = '0', hour = '0', min = '0' } = match.groups;
-    return Math.floor(
-      +month.replace('m', '') * 24 * 30 +
-        +week.replace('w', '') * 24 * 7 +
-        +day.replace('d', '') * 24 +
-        +hour.replace('h', '') +
-        +min.replace('min', '') / 60 || 0
+    return (
+      Math.floor(
+        (+month.replace('M', '') * 24 * 30 +
+          +week.replace('W', '') * 24 * 7 +
+          +day.replace('D', '') * 24 +
+          +hour.replace('h', '') +
+          +min.replace('m', '') / 60 || 0) * 100
+      ) / 100
     );
   }
   return 0;
@@ -88,10 +100,6 @@ export function timeToHoursByString(time: string) {
 
 // eslint-disable-next-line max-params
 async function getCloseDate(cornix: CornixConnection, openDate: Date, signalId: number, time_passed: string, loop = 0): Promise<Date | undefined> {
-  if (time_passed.includes('m') && Config.PRECISE_TIME) {
-    console.log('Getting trade info', time_passed, signalId);
-    return (await cornix.getTradeInfo(signalId))?.data.general.closedAt;
-  }
   const closeDate = new Date(openDate.toISOString());
   const hours = timeToHoursByString(time_passed);
   closeDate.setHours(closeDate.getHours() + hours);
@@ -119,11 +127,11 @@ export function formatDecimal(num: number | string) {
   if (!num) {
     return '0';
   }
-  const n = parseFloat(num.toString());
+  const n = parseFloat(num.toString()).toString();
   if (Config.REPLACE_DOTS) {
-    return n.toString().replace('.', ',');
+    return n.replace('.', ',');
   }
-  return n.toString();
+  return n;
 }
 
 export function wait(secs: number) {
@@ -132,4 +140,34 @@ export function wait(secs: number) {
       resolve(true);
     }, secs * 1000);
   });
+}
+
+export function getDay(date?: Date, local = true) {
+  if (!date) {
+    return '';
+  }
+  if (local) {
+    return [date.getFullYear(), date.getMonth() + 1, date.getDate()].map((d) => d.toString().padStart(2, '0')).join('-');
+  }
+  return date.toISOString().split('.')[0].split('T')[0];
+}
+
+export function getMonth(date?: Date, local = true) {
+  if (!date) {
+    return '';
+  }
+  if (local) {
+    return [date.getFullYear(), date.getMonth() + 1, 1].map((d) => d.toString().padStart(2, '0')).join('-');
+  }
+  return date.toISOString().split('.')[0].split('T')[0].split('-').slice(0, 2).join('-');
+}
+
+export function getOpenDate(date: Date, diffHours: number, local = true) {
+  if (!date) {
+    return undefined;
+  }
+  const openDate = local ? new Date(date) : new Date(date.toISOString());
+  const diffMinutes = diffHours * 60;
+  openDate.setMinutes(openDate.getMinutes() - diffMinutes);
+  return openDate;
 }
