@@ -39,4 +39,9 @@ Config.INCLUDE_OPEN = !!open;
 Config.EXTRACT_PROFITS = !!profit;
 Config.CHANNELS_INFO = !!channels;
 
+if (!Config.EXTRACT_PROFITS && !Config.CHANNELS_INFO) {
+  console.log('You must specify at least one of the following options: --profit (-p), --channels (-c)');
+  process.exit(1);
+}
+
 void extractor();

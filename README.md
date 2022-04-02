@@ -27,6 +27,8 @@ Options:
   -r, --refresh <refresh_token>  cornix dashboard refresh token (env: REFRESH_TOKEN)
   -d, --dot                      use dot as decimal separator (env: REPLACE_DOT)
   -o, --open                     include open trades (env: INCLUDE_OPEN)
+  -c, --channels                 extract channels info (env: CHANNELS_INFO)
+  -p, --profit                   extract profits (env: EXTRACT_PROFITS)
   -h, --help                     display help for command
 ```
 
