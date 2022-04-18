@@ -1,34 +1,34 @@
-import inquirer from 'inquirer';
-import { CornixConnection } from './api/axios-cornix';
-import { ExchangeSignalsDataEntity } from './api/entity/signals-data/exchange-signals-data.entity';
-import { writeOutput } from './common';
-import { Config, formatDate, formatDecimal, getDay, getMonth, getOpenDate, timeToHoursByString } from './config';
+import inquirer from 'inquirer'
+import { CornixConnection } from './api/axios-cornix'
+import { ExchangeSignalsDataEntity } from './api/entity/signals-data/exchange-signals-data.entity'
+import { writeOutput } from './common'
+import { Config, formatDate, formatDecimal, getDay, getMonth, getOpenDate, timeToHoursByString } from './config'
 
-let cornix: CornixConnection;
+let cornix: CornixConnection
 
 type SelectChannelDetail = {
-  id: number;
-  name: string;
-};
+  id: number
+  name: string
+}
 
 type SelectChannelsResult = {
-  groups: SelectChannelDetail[];
-};
+  groups: SelectChannelDetail[]
+}
 
 export function writeTrades(text: string) {
   const headers =
-    'Exchange,Date,Symbol,Status,"Duration (hours)",Position,Type,Channel,"Entry Progress","TP Progress",Profit,Potential,"Risk/Reward",Day,Month,"Open Date","Open Day","Open Month"';
-  writeOutput('statistics.csv', headers, text);
+    'Exchange,Date,Symbol,Status,"Duration (hours)",Position,Type,Channel,"Entry Progress","TP Progress",Profit,Potential,"Risk/Reward","Margin Type",Leverage,Day,Month,"Open Date","Open Day","Open Month"'
+  writeOutput('statistics.csv', headers, text)
 }
 
 async function generateCsvContent(trades: Map<string, ExchangeSignalsDataEntity[]>, isOpen: boolean) {
   if (!trades) {
-    return '';
+    return ''
   }
-  const body: string[] = [];
+  const body: string[] = []
   for (const [exchange, infos] of Array.from(trades.entries())) {
-    const rowBase = [exchange];
-    const rows: string[] = [];
+    const rowBase = [exchange]
+    const rows: string[] = []
     for (const {
       date,
       // signalId,
@@ -38,10 +38,12 @@ async function generateCsvContent(trades: Map<string, ExchangeSignalsDataEntity[
       type,
       group,
       potential,
-      rr
+      rr,
+      marginType,
+      leverage,
     } of infos) {
-      const timePassed = timeToHoursByString(time_passed);
-      const openDate = getOpenDate(date, isOpen ? 0 : timePassed);
+      const timePassed = timeToHoursByString(time_passed)
+      const openDate = getOpenDate(date, isOpen ? 0 : timePassed)
       const rowInfo = [
         formatDate(date),
         symbol,
@@ -56,53 +58,55 @@ async function generateCsvContent(trades: Map<string, ExchangeSignalsDataEntity[
         formatDecimal(profit * 100),
         formatDecimal(potential),
         formatDecimal(rr.calculateRR()),
+        marginType,
+        leverage,
         getDay(date),
         getMonth(date),
         formatDate(openDate),
         getDay(openDate),
-        getMonth(openDate)
-      ];
-      rows.push(`"${[...rowBase, ...rowInfo].join('","')}"`);
+        getMonth(openDate),
+      ]
+      rows.push(`"${[...rowBase, ...rowInfo].join('","')}"`)
     }
-    body.push(rows.join('\n'));
+    body.push(rows.join('\n'))
   }
-  return body.join('\n');
+  return body.join('\n')
 }
 
 export async function getTrades(channelId: number, name: string) {
-  console.log(`[?] Extracting channel "${name}"`);
-  const closedTrades = await cornix.getClosedTrades(channelId);
-  const trades: string[] = [];
+  console.log(`[?] Extracting channel "${name}"`)
+  const closedTrades = await cornix.getClosedTrades(channelId)
+  const trades: string[] = []
   if (closedTrades) {
-    trades.push(await generateCsvContent(closedTrades, false));
+    trades.push(await generateCsvContent(closedTrades, false))
   }
   if (Config.INCLUDE_OPEN) {
-    const openTrades = await cornix.getOpenTrades(channelId);
+    const openTrades = await cornix.getOpenTrades(channelId)
     if (openTrades) {
-      trades.push(await generateCsvContent(openTrades, true));
+      trades.push(await generateCsvContent(openTrades, true))
     }
   }
-  return trades.join('\n');
+  return trades.join('\n')
 }
 
 export async function selectChannels(_cornix: CornixConnection): Promise<SelectChannelsResult | undefined> {
-  cornix = _cornix;
-  const response = await cornix.getChannels();
+  cornix = _cornix
+  const response = await cornix.getChannels()
   if (response?.data) {
-    const choices = Array.from(response.data.entries()).map(([value, name]) => ({ value: { id: value, name }, name }));
+    const choices = Array.from(response.data.entries()).map(([value, name]) => ({ value: { id: value, name }, name }))
     const result = await inquirer.prompt<SelectChannelsResult>([
       {
         type: 'checkbox',
         name: 'groups',
         message: 'Select channels to dump',
-        choices
-      }
-    ]);
+        choices,
+      },
+    ])
     if (!result.groups.length) {
-      console.log('[-] No groups selected, please select one or more groups');
-      return selectChannels(cornix);
+      console.log('[-] No groups selected, please select one or more groups')
+      return selectChannels(cornix)
     }
-    return result;
+    return result
   }
-  return undefined;
+  return undefined
 }

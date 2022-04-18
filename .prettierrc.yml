@@ -1,8 +1,8 @@
 printWidth: 150
 tabWidth: 2
-semi: true
+semi: false
 endOfLine: lf
 singleQuote: true
-trailingComma: 'none'
+trailingComma: 'all'
 bracketSpacing: true
 arrowParens: 'always'
