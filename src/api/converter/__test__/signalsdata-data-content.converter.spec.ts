@@ -1313,7 +1313,7 @@ const mockData: ISignalsDataDataContent = {
   },
 }
 
-describe('SignalsDataDataContentConverter', () => {
+describe.skip('SignalsDataDataContentConverter', () => {
   let converter: SignalsDataDataContentConverter
   beforeEach(() => {
     converter = new SignalsDataDataContentConverter()

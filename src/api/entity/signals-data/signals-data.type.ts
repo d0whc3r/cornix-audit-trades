@@ -10,6 +10,11 @@ export interface RiskReward {
   reward: number
 }
 
+export enum MarginType {
+  ISOLATED = 1,
+  CROSS = 2,
+}
+
 export interface ExchangeSignalsData {
   signalId: number
   symbol: string
@@ -20,6 +25,8 @@ export interface ExchangeSignalsData {
   group: string
   rr: RiskReward
   potential?: number | null
+  marginType: string
+  leverage: number
 }
 
 export interface IExchangeSignalsData {

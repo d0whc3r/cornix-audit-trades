@@ -17,7 +17,7 @@ type SelectChannelsResult = {
 
 export function writeTrades(text: string) {
   const headers =
-    'Exchange,Date,Symbol,Status,"Duration (hours)",Position,Type,Channel,"Entry Progress","TP Progress",Profit,Potential,"Risk/Reward",Day,Month,"Open Date","Open Day","Open Month"'
+    'Exchange,Date,Symbol,Status,"Duration (hours)",Position,Type,Channel,"Entry Progress","TP Progress",Profit,Potential,"Risk/Reward","Margin Type",Leverage,Day,Month,"Open Date","Open Day","Open Month"'
   writeOutput('statistics.csv', headers, text)
 }
 
@@ -39,6 +39,8 @@ async function generateCsvContent(trades: Map<string, ExchangeSignalsDataEntity[
       group,
       potential,
       rr,
+      marginType,
+      leverage,
     } of infos) {
       const timePassed = timeToHoursByString(time_passed)
       const openDate = getOpenDate(date, isOpen ? 0 : timePassed)
@@ -56,6 +58,8 @@ async function generateCsvContent(trades: Map<string, ExchangeSignalsDataEntity[
         formatDecimal(profit * 100),
         formatDecimal(potential),
         formatDecimal(rr.calculateRR()),
+        marginType,
+        leverage,
         getDay(date),
         getMonth(date),
         formatDate(openDate),

@@ -1,6 +1,6 @@
 import { JsonConvert, JsonConverter, JsonCustomConvert } from 'json2typescript'
 import { ExchangeSignalsDataEntity } from '../entity/signals-data/exchange-signals-data.entity'
-import { ExchangeSignalsData, ISignalsDataDataContent, RiskReward } from '../entity/signals-data/signals-data.type'
+import { ExchangeSignalsData, ISignalsDataDataContent, MarginType, RiskReward } from '../entity/signals-data/signals-data.type'
 
 function parseRiskReward(rr: string | null): RiskReward {
   if (!rr) {
@@ -26,7 +26,7 @@ export class SignalsDataDataContentConverter implements JsonCustomConvert<Map<st
       const signalData: ExchangeSignalsDataEntity[] = []
       signal_cards.forEach((card) => {
         const [, signalId, symbol, , dateTime, info, extra] = card
-        const [[, position], [, type], [, group], , [, riskReward], [, potential]] = extra
+        const [[, position], [, type], [, group], , [, riskReward], [, potential], [, marginType], [, leverage]] = extra
         const signal: ExchangeSignalsData = {
           signalId,
           symbol,
@@ -39,6 +39,8 @@ export class SignalsDataDataContentConverter implements JsonCustomConvert<Map<st
           // rr: jsonConvert.deserializeObject(parseRiskReward(riskReward), RiskRewardEntity),
           rr: parseRiskReward(riskReward),
           potential: parseFloat(potential || '0'),
+          marginType: +(marginType || 1) === MarginType.ISOLATED ? 'isolated' : 'cross',
+          leverage: parseInt(leverage || '1', 10),
         }
         signalData.push(jsonConvert.deserializeObject(signal, ExchangeSignalsDataEntity))
       })

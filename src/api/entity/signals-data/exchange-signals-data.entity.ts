@@ -48,4 +48,8 @@ export class ExchangeSignalsDataEntity implements ExchangeSignalsData {
   rr = new RiskRewardEntity()
   @JsonProperty('potential', Number, true)
   potential = 0
+  @JsonProperty('leverage', Number)
+  leverage = 0
+  @JsonProperty('marginType', String)
+  marginType = ''
 }
