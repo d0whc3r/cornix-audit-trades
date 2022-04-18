@@ -1,5 +1,5 @@
-import { ISignalsDataDataContent } from '../../entity/signals-data/signals-data.type';
-import { SignalsDataDataContentConverter } from '../signalsdata-data-content.converter';
+import { ISignalsDataDataContent } from '../../entity/signals-data/signals-data.type'
+import { SignalsDataDataContentConverter } from '../signalsdata-data-content.converter'
 
 const mockData: ISignalsDataDataContent = {
   'Binance Futures': {
@@ -14,7 +14,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '12h',
           entry_progress: 0.5,
           take_profit_progress: 0,
-          profit: -0.0124
+          profit: -0.0124,
         },
         [
           ['Long/Short', 'Long'],
@@ -22,8 +22,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '17:50'],
-          ['Potential Profit', '20.95%']
-        ]
+          ['Potential Profit', '20.95%'],
+        ],
       ],
       [
         4532644,
@@ -35,7 +35,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '13h',
           entry_progress: 0.5,
           take_profit_progress: 0.2,
-          profit: -0.0047
+          profit: -0.0047,
         },
         [
           ['Long/Short', 'Long'],
@@ -43,8 +43,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '11:25'],
-          ['Potential Profit', '27.27%']
-        ]
+          ['Potential Profit', '27.27%'],
+        ],
       ],
       [
         4532621,
@@ -56,7 +56,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '13h',
           entry_progress: 0.5,
           take_profit_progress: 0.2,
-          profit: 0.0032
+          profit: 0.0032,
         },
         [
           ['Long/Short', 'Long'],
@@ -64,8 +64,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '19:50'],
-          ['Potential Profit', '19.03%']
-        ]
+          ['Potential Profit', '19.03%'],
+        ],
       ],
       [
         4513994,
@@ -77,7 +77,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '1d',
           entry_progress: 0,
           take_profit_progress: 0,
-          profit: 0
+          profit: 0,
         },
         [
           ['Long/Short', 'Long'],
@@ -85,8 +85,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '47:100'],
-          ['Potential Profit', '34.52%']
-        ]
+          ['Potential Profit', '34.52%'],
+        ],
       ],
       [
         4513980,
@@ -98,7 +98,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '1d',
           entry_progress: 0.5,
           take_profit_progress: 0.1,
-          profit: -0.0256
+          profit: -0.0256,
         },
         [
           ['Long/Short', 'Long'],
@@ -106,8 +106,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '13:25'],
-          ['Potential Profit', '17.65%']
-        ]
+          ['Potential Profit', '17.65%'],
+        ],
       ],
       [
         4505349,
@@ -119,7 +119,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '2d',
           entry_progress: 0.5,
           take_profit_progress: 0.1,
-          profit: 0.0081
+          profit: 0.0081,
         },
         [
           ['Long/Short', 'Long'],
@@ -127,8 +127,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '39:100'],
-          ['Potential Profit', '21.96%']
-        ]
+          ['Potential Profit', '21.96%'],
+        ],
       ],
       [
         4500403,
@@ -140,7 +140,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '2d',
           entry_progress: 0,
           take_profit_progress: 0,
-          profit: 0
+          profit: 0,
         },
         [
           ['Long/Short', 'Long'],
@@ -148,8 +148,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '7:25'],
-          ['Potential Profit', '24.51%']
-        ]
+          ['Potential Profit', '24.51%'],
+        ],
       ],
       [
         4496641,
@@ -161,7 +161,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '2d',
           entry_progress: 0.5,
           take_profit_progress: 0.2,
-          profit: -0.0066
+          profit: -0.0066,
         },
         [
           ['Long/Short', 'Long'],
@@ -169,8 +169,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '19:50'],
-          ['Potential Profit', '24.95%']
-        ]
+          ['Potential Profit', '24.95%'],
+        ],
       ],
       [
         4487667,
@@ -182,7 +182,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '3d',
           entry_progress: 0,
           take_profit_progress: 0,
-          profit: 0
+          profit: 0,
         },
         [
           ['Long/Short', 'Long'],
@@ -190,8 +190,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '43:100'],
-          ['Potential Profit', '20.18%']
-        ]
+          ['Potential Profit', '20.18%'],
+        ],
       ],
       [
         4487649,
@@ -203,7 +203,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '3d',
           entry_progress: 0.7,
           take_profit_progress: 0,
-          profit: -0.0695
+          profit: -0.0695,
         },
         [
           ['Long/Short', 'Long'],
@@ -211,8 +211,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', ''],
-          ['Potential Profit', null]
-        ]
+          ['Potential Profit', null],
+        ],
       ],
       [
         4487609,
@@ -224,7 +224,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '3d',
           entry_progress: 0.7,
           take_profit_progress: 0,
-          profit: -0.0695
+          profit: -0.0695,
         },
         [
           ['Long/Short', 'Long'],
@@ -232,8 +232,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', ''],
-          ['Potential Profit', null]
-        ]
+          ['Potential Profit', null],
+        ],
       ],
       [
         4487601,
@@ -245,7 +245,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '3d',
           entry_progress: 0,
           take_profit_progress: 0,
-          profit: 0
+          profit: 0,
         },
         [
           ['Long/Short', 'Long'],
@@ -253,8 +253,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '1:4'],
-          ['Potential Profit', '27.37%']
-        ]
+          ['Potential Profit', '27.37%'],
+        ],
       ],
       [
         4469277,
@@ -266,7 +266,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '4d',
           entry_progress: 0.5,
           take_profit_progress: 0.1,
-          profit: -0.033
+          profit: -0.033,
         },
         [
           ['Long/Short', 'Long'],
@@ -274,8 +274,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '11:25'],
-          ['Potential Profit', '26.54%']
-        ]
+          ['Potential Profit', '26.54%'],
+        ],
       ],
       [
         4451575,
@@ -287,7 +287,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '5d',
           entry_progress: 0.5,
           take_profit_progress: 0.25,
-          profit: 0.0089
+          profit: 0.0089,
         },
         [
           ['Long/Short', 'Long'],
@@ -295,8 +295,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '53:100'],
-          ['Potential Profit', '10.35%']
-        ]
+          ['Potential Profit', '10.35%'],
+        ],
       ],
       [
         4449648,
@@ -308,7 +308,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '5d',
           entry_progress: 0.889,
           take_profit_progress: 0,
-          profit: -0.0528
+          profit: -0.0528,
         },
         [
           ['Long/Short', 'Long'],
@@ -316,8 +316,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', ''],
-          ['Potential Profit', null]
-        ]
+          ['Potential Profit', null],
+        ],
       ],
       [
         4439313,
@@ -329,7 +329,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '6d',
           entry_progress: 1,
           take_profit_progress: 0,
-          profit: -0.04
+          profit: -0.04,
         },
         [
           ['Long/Short', 'Long'],
@@ -337,8 +337,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', ''],
-          ['Potential Profit', null]
-        ]
+          ['Potential Profit', null],
+        ],
       ],
       [
         4439303,
@@ -350,7 +350,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '6d',
           entry_progress: 1,
           take_profit_progress: 0,
-          profit: -0.04
+          profit: -0.04,
         },
         [
           ['Long/Short', 'Long'],
@@ -358,8 +358,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', ''],
-          ['Potential Profit', null]
-        ]
+          ['Potential Profit', null],
+        ],
       ],
       [
         4439293,
@@ -371,7 +371,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '6d',
           entry_progress: 1,
           take_profit_progress: 0,
-          profit: -0.04
+          profit: -0.04,
         },
         [
           ['Long/Short', 'Long'],
@@ -379,8 +379,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', ''],
-          ['Potential Profit', null]
-        ]
+          ['Potential Profit', null],
+        ],
       ],
       [
         4433930,
@@ -392,7 +392,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '6d',
           entry_progress: 0.5,
           take_profit_progress: 0.1,
-          profit: -0.0602
+          profit: -0.0602,
         },
         [
           ['Long/Short', 'Long'],
@@ -400,8 +400,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '1:2'],
-          ['Potential Profit', '19.12%']
-        ]
+          ['Potential Profit', '19.12%'],
+        ],
       ],
       [
         4432975,
@@ -413,7 +413,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '6d',
           entry_progress: 0,
           take_profit_progress: 0,
-          profit: 0
+          profit: 0,
         },
         [
           ['Long/Short', 'Long'],
@@ -421,8 +421,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '11:50'],
-          ['Potential Profit', '26.88%']
-        ]
+          ['Potential Profit', '26.88%'],
+        ],
       ],
       [
         4427978,
@@ -434,7 +434,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '6d',
           entry_progress: 1,
           take_profit_progress: 0.167,
-          profit: 0.0447
+          profit: 0.0447,
         },
         [
           ['Long/Short', 'Long'],
@@ -442,8 +442,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '8:25'],
-          ['Potential Profit', '45.59%']
-        ]
+          ['Potential Profit', '45.59%'],
+        ],
       ],
       [
         4395239,
@@ -455,7 +455,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '1w',
           entry_progress: 0.5,
           take_profit_progress: 0.286,
-          profit: -0.0034
+          profit: -0.0034,
         },
         [
           ['Long/Short', 'Long'],
@@ -463,8 +463,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '9:25'],
-          ['Potential Profit', '18.75%']
-        ]
+          ['Potential Profit', '18.75%'],
+        ],
       ],
       [
         4383263,
@@ -476,7 +476,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '1w',
           entry_progress: 0,
           take_profit_progress: 0,
-          profit: 0
+          profit: 0,
         },
         [
           ['Long/Short', 'Long'],
@@ -484,8 +484,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '41:100'],
-          ['Potential Profit', '18.08%']
-        ]
+          ['Potential Profit', '18.08%'],
+        ],
       ],
       [
         4371137,
@@ -497,7 +497,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '1w',
           entry_progress: 1,
           take_profit_progress: 0.2,
-          profit: 0.0124
+          profit: 0.0124,
         },
         [
           ['Long/Short', 'Long'],
@@ -505,8 +505,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '9:25'],
-          ['Potential Profit', '20.18%']
-        ]
+          ['Potential Profit', '20.18%'],
+        ],
       ],
       [
         4351324,
@@ -518,7 +518,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '1w',
           entry_progress: 0,
           take_profit_progress: 0,
-          profit: 0
+          profit: 0,
         },
         [
           ['Long/Short', 'Long'],
@@ -526,8 +526,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '73:100'],
-          ['Potential Profit', '34.56%']
-        ]
+          ['Potential Profit', '34.56%'],
+        ],
       ],
       [
         4341306,
@@ -539,7 +539,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '1w',
           entry_progress: 0.5,
           take_profit_progress: 0.2,
-          profit: -0.0139
+          profit: -0.0139,
         },
         [
           ['Long/Short', 'Long'],
@@ -547,8 +547,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '9:25'],
-          ['Potential Profit', '20.18%']
-        ]
+          ['Potential Profit', '20.18%'],
+        ],
       ],
       [
         4341297,
@@ -560,7 +560,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '1w',
           entry_progress: 0.5,
           take_profit_progress: 0.444,
-          profit: 0.0582
+          profit: 0.0582,
         },
         [
           ['Long/Short', 'Long'],
@@ -568,8 +568,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '-1:10'],
-          ['Potential Profit', '30.24%']
-        ]
+          ['Potential Profit', '30.24%'],
+        ],
       ],
       [
         4334677,
@@ -581,7 +581,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '1w',
           entry_progress: 0.5,
           take_profit_progress: 0.7,
-          profit: 0.1399
+          profit: 0.1399,
         },
         [
           ['Long/Short', 'Long'],
@@ -589,8 +589,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '-7:50'],
-          ['Potential Profit', '31.3%']
-        ]
+          ['Potential Profit', '31.3%'],
+        ],
       ],
       [
         4332602,
@@ -602,7 +602,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '1w',
           entry_progress: 0.5,
           take_profit_progress: 0.5,
-          profit: 0.0598
+          profit: 0.0598,
         },
         [
           ['Long/Short', 'Long'],
@@ -610,8 +610,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '-13:100'],
-          ['Potential Profit', '19.1%']
-        ]
+          ['Potential Profit', '19.1%'],
+        ],
       ],
       [
         4332530,
@@ -623,7 +623,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '1w',
           entry_progress: 0.5,
           take_profit_progress: 0.444,
-          profit: 0.0649
+          profit: 0.0649,
         },
         [
           ['Long/Short', 'Long'],
@@ -631,8 +631,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '-9:100'],
-          ['Potential Profit', '25.07%']
-        ]
+          ['Potential Profit', '25.07%'],
+        ],
       ],
       [
         4316220,
@@ -644,7 +644,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '1w',
           entry_progress: 0,
           take_profit_progress: 0,
-          profit: 0
+          profit: 0,
         },
         [
           ['Long/Short', 'Long'],
@@ -652,8 +652,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '6:25'],
-          ['Potential Profit', '23.81%']
-        ]
+          ['Potential Profit', '23.81%'],
+        ],
       ],
       [
         4316191,
@@ -665,7 +665,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '1w',
           entry_progress: 0.5,
           take_profit_progress: 0.429,
-          profit: 0.0379
+          profit: 0.0379,
         },
         [
           ['Long/Short', 'Long'],
@@ -673,8 +673,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '19:50'],
-          ['Potential Profit', '20.43%']
-        ]
+          ['Potential Profit', '20.43%'],
+        ],
       ],
       [
         4315824,
@@ -686,7 +686,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '1w',
           entry_progress: 0.5,
           take_profit_progress: 0.444,
-          profit: 0.0515
+          profit: 0.0515,
         },
         [
           ['Long/Short', 'Long'],
@@ -694,8 +694,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '-3:25'],
-          ['Potential Profit', '19.58%']
-        ]
+          ['Potential Profit', '19.58%'],
+        ],
       ],
       [
         4305540,
@@ -707,7 +707,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '2w',
           entry_progress: 0.5,
           take_profit_progress: 0.333,
-          profit: 0.005
+          profit: 0.005,
         },
         [
           ['Long/Short', 'Long'],
@@ -715,8 +715,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '9:20'],
-          ['Potential Profit', '14.82%']
-        ]
+          ['Potential Profit', '14.82%'],
+        ],
       ],
       [
         4299590,
@@ -728,7 +728,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '2w',
           entry_progress: 0.5,
           take_profit_progress: 0.625,
-          profit: 0.0791
+          profit: 0.0791,
         },
         [
           ['Long/Short', 'Long'],
@@ -736,8 +736,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '-3:20'],
-          ['Potential Profit', '18.43%']
-        ]
+          ['Potential Profit', '18.43%'],
+        ],
       ],
       [
         4295017,
@@ -749,7 +749,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '2w',
           entry_progress: 0.5,
           take_profit_progress: 0.7,
-          profit: 0.1399
+          profit: 0.1399,
         },
         [
           ['Long/Short', 'Long'],
@@ -757,8 +757,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '-7:50'],
-          ['Potential Profit', '31.3%']
-        ]
+          ['Potential Profit', '31.3%'],
+        ],
       ],
       [
         4249287,
@@ -770,7 +770,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '2w',
           entry_progress: 0.5,
           take_profit_progress: 0.2,
-          profit: -0.0175
+          profit: -0.0175,
         },
         [
           ['Long/Short', 'Long'],
@@ -778,8 +778,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '9:20'],
-          ['Potential Profit', '24.44%']
-        ]
+          ['Potential Profit', '24.44%'],
+        ],
       ],
       [
         4248401,
@@ -791,7 +791,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '2w',
           entry_progress: 1,
           take_profit_progress: 0.7,
-          profit: 0.2525
+          profit: 0.2525,
         },
         [
           ['Long/Short', 'Long'],
@@ -799,8 +799,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '31:100'],
-          ['Potential Profit', '46.88%']
-        ]
+          ['Potential Profit', '46.88%'],
+        ],
       ],
       [
         4248365,
@@ -812,7 +812,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '2w',
           entry_progress: 1,
           take_profit_progress: 0,
-          profit: -0.2296
+          profit: -0.2296,
         },
         [
           ['Long/Short', 'Long'],
@@ -820,8 +820,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', ''],
-          ['Potential Profit', null]
-        ]
+          ['Potential Profit', null],
+        ],
       ],
       [
         4233650,
@@ -833,7 +833,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '2w',
           entry_progress: 0.5,
           take_profit_progress: 0.333,
-          profit: -0.0297
+          profit: -0.0297,
         },
         [
           ['Long/Short', 'Long'],
@@ -841,8 +841,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '13:50'],
-          ['Potential Profit', '69.52%']
-        ]
+          ['Potential Profit', '69.52%'],
+        ],
       ],
       [
         4222703,
@@ -854,7 +854,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '2w',
           entry_progress: 0.5,
           take_profit_progress: 0.556,
-          profit: 0.0841
+          profit: 0.0841,
         },
         [
           ['Long/Short', 'Long'],
@@ -862,8 +862,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '31:100'],
-          ['Potential Profit', '45.0%']
-        ]
+          ['Potential Profit', '45.0%'],
+        ],
       ],
       [
         4212545,
@@ -875,7 +875,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '2w',
           entry_progress: 0.5,
           take_profit_progress: 0.444,
-          profit: 0.0806
+          profit: 0.0806,
         },
         [
           ['Long/Short', 'Long'],
@@ -883,8 +883,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '39:100'],
-          ['Potential Profit', '23.58%']
-        ]
+          ['Potential Profit', '23.58%'],
+        ],
       ],
       [
         4198121,
@@ -896,7 +896,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '2w',
           entry_progress: 0.5,
           take_profit_progress: 0.6,
-          profit: 0.1627
+          profit: 0.1627,
         },
         [
           ['Long/Short', 'Long'],
@@ -904,8 +904,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '3:10'],
-          ['Potential Profit', '32.79%']
-        ]
+          ['Potential Profit', '32.79%'],
+        ],
       ],
       [
         4197983,
@@ -917,7 +917,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '2w',
           entry_progress: 0.5,
           take_profit_progress: 0.556,
-          profit: 0.0304
+          profit: 0.0304,
         },
         [
           ['Long/Short', 'Long'],
@@ -925,8 +925,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '43:100'],
-          ['Potential Profit', '19.93%']
-        ]
+          ['Potential Profit', '19.93%'],
+        ],
       ],
       [
         4179948,
@@ -938,7 +938,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '3w',
           entry_progress: 0.5,
           take_profit_progress: 0.8,
-          profit: 0.1064
+          profit: 0.1064,
         },
         [
           ['Long/Short', 'Long'],
@@ -946,8 +946,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '9:20'],
-          ['Potential Profit', '16.05%']
-        ]
+          ['Potential Profit', '16.05%'],
+        ],
       ],
       [
         4175978,
@@ -959,7 +959,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '3w',
           entry_progress: 0.5,
           take_profit_progress: 0.625,
-          profit: 0.1776
+          profit: 0.1776,
         },
         [
           ['Long/Short', 'Long'],
@@ -967,8 +967,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '7:25'],
-          ['Potential Profit', '29.85%']
-        ]
+          ['Potential Profit', '29.85%'],
+        ],
       ],
       [
         4171935,
@@ -980,7 +980,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '3w',
           entry_progress: 0.5,
           take_profit_progress: 0.571,
-          profit: 0.0497
+          profit: 0.0497,
         },
         [
           ['Long/Short', 'Short'],
@@ -988,8 +988,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '49:100'],
-          ['Potential Profit', '24.05%']
-        ]
+          ['Potential Profit', '24.05%'],
+        ],
       ],
       [
         4167056,
@@ -1001,7 +1001,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '3w',
           entry_progress: 0.5,
           take_profit_progress: 0.75,
-          profit: 0.1574
+          profit: 0.1574,
         },
         [
           ['Long/Short', 'Long'],
@@ -1009,8 +1009,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '39:100'],
-          ['Potential Profit', '26.04%']
-        ]
+          ['Potential Profit', '26.04%'],
+        ],
       ],
       [
         4158231,
@@ -1022,7 +1022,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '3w',
           entry_progress: 0.5,
           take_profit_progress: 0.875,
-          profit: 0.2788
+          profit: 0.2788,
         },
         [
           ['Long/Short', 'Long'],
@@ -1030,8 +1030,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '17:50'],
-          ['Potential Profit', '36.94%']
-        ]
+          ['Potential Profit', '36.94%'],
+        ],
       ],
       [
         4153321,
@@ -1043,7 +1043,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '3w',
           entry_progress: 1,
           take_profit_progress: 0.6,
-          profit: 0.3034
+          profit: 0.3034,
         },
         [
           ['Long/Short', 'Long'],
@@ -1051,8 +1051,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '27:50'],
-          ['Potential Profit', '38.17%']
-        ]
+          ['Potential Profit', '38.17%'],
+        ],
       ],
       [
         4145187,
@@ -1064,7 +1064,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '3w',
           entry_progress: 1,
           take_profit_progress: 0.571,
-          profit: 0.1922
+          profit: 0.1922,
         },
         [
           ['Long/Short', 'Long'],
@@ -1072,8 +1072,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '49:100'],
-          ['Potential Profit', '27.63%']
-        ]
+          ['Potential Profit', '27.63%'],
+        ],
       ],
       [
         4141433,
@@ -1085,7 +1085,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '3w',
           entry_progress: 1,
           take_profit_progress: 0,
-          profit: 0.0497
+          profit: 0.0497,
         },
         [
           ['Long/Short', 'Long'],
@@ -1093,8 +1093,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '37:100'],
-          ['Potential Profit', '48.68%']
-        ]
+          ['Potential Profit', '48.68%'],
+        ],
       ],
       [
         4141347,
@@ -1106,7 +1106,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '3w',
           entry_progress: 1,
           take_profit_progress: 0.8,
-          profit: 0.0682
+          profit: 0.0682,
         },
         [
           ['Long/Short', 'Long'],
@@ -1114,8 +1114,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '97:100'],
-          ['Potential Profit', '8.99%']
-        ]
+          ['Potential Profit', '8.99%'],
+        ],
       ],
       [
         4087737,
@@ -1127,7 +1127,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '3w',
           entry_progress: 0,
           take_profit_progress: 0,
-          profit: 0
+          profit: 0,
         },
         [
           ['Long/Short', 'Long'],
@@ -1135,10 +1135,10 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Futures'],
           ['Risk/Reward', '3:10'],
-          ['Potential Profit', '14.45%']
-        ]
-      ]
-    ]
+          ['Potential Profit', '14.45%'],
+        ],
+      ],
+    ],
   },
   'Huobi.pro': {
     signal_cards: [
@@ -1152,7 +1152,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '1w',
           entry_progress: 0.5,
           take_profit_progress: 0.5,
-          profit: 0.0337
+          profit: 0.0337,
         },
         [
           ['Long/Short', 'Long'],
@@ -1160,10 +1160,10 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Huobi.pro, Bittrex, FTX, KuCoin, Binance'],
           ['Risk/Reward', ''],
-          ['Potential Profit', '27.73%']
-        ]
-      ]
-    ]
+          ['Potential Profit', '27.73%'],
+        ],
+      ],
+    ],
   },
   Bittrex: {
     signal_cards: [
@@ -1177,7 +1177,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '1w',
           entry_progress: 0.5,
           take_profit_progress: 0.5,
-          profit: 0.0337
+          profit: 0.0337,
         },
         [
           ['Long/Short', 'Long'],
@@ -1185,10 +1185,10 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Huobi.pro, Bittrex, FTX, KuCoin, Binance'],
           ['Risk/Reward', ''],
-          ['Potential Profit', '27.73%']
-        ]
-      ]
-    ]
+          ['Potential Profit', '27.73%'],
+        ],
+      ],
+    ],
   },
   FTX: {
     signal_cards: [
@@ -1202,7 +1202,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '1w',
           entry_progress: 0.5,
           take_profit_progress: 0.5,
-          profit: 0.0337
+          profit: 0.0337,
         },
         [
           ['Long/Short', 'Long'],
@@ -1210,10 +1210,10 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Huobi.pro, Bittrex, FTX, KuCoin, Binance'],
           ['Risk/Reward', ''],
-          ['Potential Profit', '27.73%']
-        ]
-      ]
-    ]
+          ['Potential Profit', '27.73%'],
+        ],
+      ],
+    ],
   },
   KuCoin: {
     signal_cards: [
@@ -1227,7 +1227,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '1w',
           entry_progress: 0.5,
           take_profit_progress: 0.5,
-          profit: 0.0337
+          profit: 0.0337,
         },
         [
           ['Long/Short', 'Long'],
@@ -1235,10 +1235,10 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Huobi.pro, Bittrex, FTX, KuCoin, Binance'],
           ['Risk/Reward', ''],
-          ['Potential Profit', '27.73%']
-        ]
-      ]
-    ]
+          ['Potential Profit', '27.73%'],
+        ],
+      ],
+    ],
   },
   Binance: {
     signal_cards: [
@@ -1252,7 +1252,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '1w',
           entry_progress: 0.5,
           take_profit_progress: 0.5,
-          profit: 0.0337
+          profit: 0.0337,
         },
         [
           ['Long/Short', 'Long'],
@@ -1260,10 +1260,10 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Huobi.pro, Bittrex, FTX, KuCoin, Binance'],
           ['Risk/Reward', ''],
-          ['Potential Profit', '27.73%']
-        ]
-      ]
-    ]
+          ['Potential Profit', '27.73%'],
+        ],
+      ],
+    ],
   },
   'Binance Coin-Futures': {
     signal_cards: [
@@ -1277,7 +1277,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '2w',
           entry_progress: 0,
           take_profit_progress: 0,
-          profit: 0
+          profit: 0,
         },
         [
           ['Long/Short', 'Long'],
@@ -1285,8 +1285,8 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Coin-Futures'],
           ['Risk/Reward', '3:5'],
-          ['Potential Profit', '9.2%']
-        ]
+          ['Potential Profit', '9.2%'],
+        ],
       ],
       [
         4128276,
@@ -1298,7 +1298,7 @@ const mockData: ISignalsDataDataContent = {
           time_passed: '3w',
           entry_progress: 0.5,
           take_profit_progress: 0.6,
-          profit: 0.1529
+          profit: 0.1529,
         },
         [
           ['Long/Short', 'Long'],
@@ -1306,20 +1306,20 @@ const mockData: ISignalsDataDataContent = {
           ['Group', 'High Accuracy Crypto Signals'],
           ['Exchanges', 'Binance Coin-Futures'],
           ['Risk/Reward', '17:50'],
-          ['Potential Profit', '33.59%']
-        ]
-      ]
-    ]
-  }
-};
+          ['Potential Profit', '33.59%'],
+        ],
+      ],
+    ],
+  },
+}
 
 describe('SignalsDataDataContentConverter', () => {
-  let converter: SignalsDataDataContentConverter;
+  let converter: SignalsDataDataContentConverter
   beforeEach(() => {
-    converter = new SignalsDataDataContentConverter();
-  });
+    converter = new SignalsDataDataContentConverter()
+  })
   it('deserialize', () => {
-    const result = converter.deserialize(mockData);
-    expect(result).toBeDefined();
-  });
-});
+    const result = converter.deserialize(mockData)
+    expect(result).toBeDefined()
+  })
+})

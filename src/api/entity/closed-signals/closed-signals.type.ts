@@ -1,10 +1,10 @@
 export interface Total {
-  allocated: number;
-  invested: number;
+  allocated: number
+  invested: number
 }
 
 export interface Total3 {
-  change: number;
+  change: number
 }
 
 export type AccountInfoOperation = [
@@ -20,10 +20,10 @@ export type AccountInfoOperation = [
   number,
   number,
   {
-    time_passed: string;
-    entry_progress: number;
-    take_profit_progress: number;
-    profit: number;
+    time_passed: string
+    entry_progress: number
+    take_profit_progress: number
+    profit: number
   },
   string, // exchange
   string, // account name
@@ -35,35 +35,35 @@ export type AccountInfoOperation = [
   number, // date * 1000 (timestamp)
   string, // position (Long, Short)
   string, // type (Regular, breakout)
-  string // Fulfilled, Cancelled, Partial Fulfilled, Position Closed, Stopped Out
-];
+  string, // Fulfilled, Cancelled, Partial Fulfilled, Position Closed, Stopped Out
+]
 
 export interface AccountInfo {
-  total: Total3;
-  trade_cards: AccountInfoOperation[];
+  total: Total3
+  trade_cards: AccountInfoOperation[]
 }
 
 export interface ExchangeAccounts {
-  [accountName: string]: AccountInfo;
+  [accountName: string]: AccountInfo
 }
 
 export type ClosedTradesDataExchanges = {
-  [exchange in SupportedExchange]: ExchangeAccounts;
-};
+  [exchange in SupportedExchange]: ExchangeAccounts
+}
 
 export interface ClosedTradesData extends ClosedTradesDataExchanges {
-  total: Total;
+  total: Total
 }
 
 export interface Data {
-  data: ClosedTradesData;
+  data: ClosedTradesData
 }
 
 export interface ClosedTrades {
-  message: string;
-  error_type: string;
-  data: Data;
-  code: number;
+  message: string
+  error_type: string
+  data: Data
+  code: number
 }
 
 export type SupportedExchange =
@@ -77,4 +77,4 @@ export type SupportedExchange =
   | 'ByBit USDT'
   | 'Bittrex'
   | 'BitMEX'
-  | 'Huobi.pro';
+  | 'Huobi.pro'

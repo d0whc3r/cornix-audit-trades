@@ -1,32 +1,32 @@
-import { JsonConvert, JsonConverter, JsonCustomConvert } from 'json2typescript';
-import { ExchangeSignalsDataEntity } from '../entity/signals-data/exchange-signals-data.entity';
-import { ExchangeSignalsData, ISignalsDataDataContent, RiskReward } from '../entity/signals-data/signals-data.type';
+import { JsonConvert, JsonConverter, JsonCustomConvert } from 'json2typescript'
+import { ExchangeSignalsDataEntity } from '../entity/signals-data/exchange-signals-data.entity'
+import { ExchangeSignalsData, ISignalsDataDataContent, RiskReward } from '../entity/signals-data/signals-data.type'
 
 function parseRiskReward(rr: string | null): RiskReward {
   if (!rr) {
     return {
       risk: 0,
-      reward: 0
-    };
+      reward: 0,
+    }
   }
-  const [risk, reward] = rr.split(':').map((x) => parseFloat(x));
+  const [risk, reward] = rr.split(':').map((x) => parseFloat(x))
   return {
     risk,
-    reward
-  };
+    reward,
+  }
 }
 
-const jsonConvert = new JsonConvert();
+const jsonConvert = new JsonConvert()
 
 @JsonConverter
 export class SignalsDataDataContentConverter implements JsonCustomConvert<Map<string, ExchangeSignalsDataEntity[]>> {
   public deserialize(data: ISignalsDataDataContent): Map<string, ExchangeSignalsDataEntity[]> {
-    const result = new Map<string, ExchangeSignalsDataEntity[]>();
+    const result = new Map<string, ExchangeSignalsDataEntity[]>()
     Object.entries(data).forEach(([exchange, { signal_cards }]) => {
-      const signalData: ExchangeSignalsDataEntity[] = [];
+      const signalData: ExchangeSignalsDataEntity[] = []
       signal_cards.forEach((card) => {
-        const [, signalId, symbol, , dateTime, info, extra] = card;
-        const [[, position], [, type], [, group], , [, riskReward], [, potential]] = extra;
+        const [, signalId, symbol, , dateTime, info, extra] = card
+        const [[, position], [, type], [, group], , [, riskReward], [, potential]] = extra
         const signal: ExchangeSignalsData = {
           signalId,
           symbol,
@@ -38,16 +38,16 @@ export class SignalsDataDataContentConverter implements JsonCustomConvert<Map<st
           group: group || '',
           // rr: jsonConvert.deserializeObject(parseRiskReward(riskReward), RiskRewardEntity),
           rr: parseRiskReward(riskReward),
-          potential: parseFloat(potential || '0')
-        };
-        signalData.push(jsonConvert.deserializeObject(signal, ExchangeSignalsDataEntity));
-      });
-      result.set(exchange, signalData);
-    });
-    return result;
+          potential: parseFloat(potential || '0'),
+        }
+        signalData.push(jsonConvert.deserializeObject(signal, ExchangeSignalsDataEntity))
+      })
+      result.set(exchange, signalData)
+    })
+    return result
   }
 
   public serialize(data: Map<string, ExchangeSignalsDataEntity[]>): any {
-    return Object.fromEntries(Array.from(data.entries()));
+    return Object.fromEntries(Array.from(data.entries()))
   }
 }

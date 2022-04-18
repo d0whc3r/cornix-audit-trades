@@ -3,38 +3,38 @@ module.exports = {
   settings: {
     'import/parsers': {
       '@babel/eslint-parser': ['.js', '.jsx'],
-      '@typescript-eslint/parser': ['.ts', '.tsx']
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
     },
     'import/resolver': {
       node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx']
-      }
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
     },
-    'import/extensions': ['.ts', '.tsx', '.js', '.jsx']
+    'import/extensions': ['.ts', '.tsx', '.js', '.jsx'],
   },
   env: {
     browser: true,
     es6: true,
     jest: true,
     node: true,
-    commonjs: true
+    commonjs: true,
   },
-  extends: ['eslint:recommended', 'prettier', 'plugin:prettier/recommended', 'plugin:sonarjs/recommended', 'plugin:security/recommended'],
+  extends: ['prettier', 'eslint:recommended', 'plugin:sonarjs/recommended', 'plugin:security/recommended'],
   plugins: ['sonarjs', 'security'],
   globals: {
     Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly'
+    SharedArrayBuffer: 'readonly',
   },
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 'latest',
     sourceType: 'module',
     project: './tsconfig.json',
-    requireConfigFile: false
+    requireConfigFile: false,
   },
   overrides: [
     {
       files: ['*.js', '*.jsx'],
-      parser: '@babel/eslint-parser'
+      parser: '@babel/eslint-parser',
     },
     {
       files: ['*.ts', '*.tsx'],
@@ -55,7 +55,7 @@ module.exports = {
         'no-constant-condition': 0,
 
         // General formatting
-        '@typescript-eslint/semi': 2,
+        '@typescript-eslint/semi': 0,
         '@typescript-eslint/brace-style': 2,
         '@typescript-eslint/func-call-spacing': 2,
         '@typescript-eslint/explicit-module-boundary-types': 0,
@@ -65,9 +65,9 @@ module.exports = {
           0,
           {
             overrides: {
-              constructors: 0
-            }
-          }
+              constructors: 0,
+            },
+          },
         ],
         // '@typescript-eslint/no-empty-interface': 2,
         '@typescript-eslint/no-inferrable-types': 2,
@@ -91,21 +91,21 @@ module.exports = {
             args: 'after-used',
             ignoreRestSiblings: false,
             caughtErrors: 'all',
-            caughtErrorsIgnorePattern: '^_'
-          }
+            caughtErrorsIgnorePattern: '^_',
+          },
         ],
         '@typescript-eslint/explicit-function-return-type': 0,
         '@typescript-eslint/no-explicit-any': 0,
         '@typescript-eslint/unbound-method': [
           2,
           {
-            ignoreStatic: true
-          }
+            ignoreStatic: true,
+          },
         ],
         'no-empty-function': 0,
         '@typescript-eslint/no-empty-function': 2,
-        '@typescript-eslint/no-unnecessary-type-assertion': 2
-      }
+        '@typescript-eslint/no-unnecessary-type-assertion': 2,
+      },
     },
     {
       files: ['*.spec.ts', '*.spec.tsx'],
@@ -116,9 +116,9 @@ module.exports = {
         '@typescript-eslint/no-unsafe-assignment': 0,
         '@typescript-eslint/no-unsafe-return': 0,
         '@typescript-eslint/ban-ts-comment': 0,
-        'sonarjs/no-duplicate-string': 0
-      }
-    }
+        'sonarjs/no-duplicate-string': 0,
+      },
+    },
   ],
   rules: {
     // Best practices
@@ -160,6 +160,7 @@ module.exports = {
     'prefer-const': 2,
     radix: 2,
     'no-shadowed-variable': 0,
-    'max-params': [2, 3]
-  }
-};
+    'max-params': [2, 3],
+    'comma-dangle': [2, 'always-multiline'],
+  },
+}
