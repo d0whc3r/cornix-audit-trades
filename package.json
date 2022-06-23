@@ -87,7 +87,7 @@
     "cross-env": "7.0.3",
     "dotenv-cli": "5.1.0",
     "dts-bundle-generator": "6.7.0",
-    "esbuild": "0.14.36",
+    "esbuild": "0.14.47",
     "eslint": "8.13.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
