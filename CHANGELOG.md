@@ -1,5 +1,18 @@
 # Changelog
 
+# [1.1.0](https://github.com/d0whc3r/cornix-audit-trades/compare/v1.0.9...v1.1.0) (2023-01-10)
+
+
+### Bug Fixes
+
+* node version to 18 ([d15efdc](https://github.com/d0whc3r/cornix-audit-trades/commit/d15efdc16059220cd923596c23007125d31628ce))
+* update test with new types ([30b4982](https://github.com/d0whc3r/cornix-audit-trades/commit/30b498233e48a23afa8983adebcaa29ac1c4b50b))
+
+
+### Features
+
+* new cornix api ([c537b6e](https://github.com/d0whc3r/cornix-audit-trades/commit/c537b6e462fa24e58b72375afc3b054f9778063c))
+
 ## [1.0.9](https://github.com/d0whc3r/cornix-audit-trades/compare/v1.0.8...v1.0.9) (2022-04-18)
 
 
