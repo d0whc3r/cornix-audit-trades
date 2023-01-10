@@ -30,7 +30,21 @@ export interface ExchangeSignalsData {
 }
 
 export interface IExchangeSignalsData {
-  signal_cards: [number, number, string, number, number, number, number, ExchangeSignalsDataInfo, [string, string | null][]][]
+  signal_cards: [
+    number,
+    number,
+    string,
+    number,
+    number,
+    number,
+    number,
+    ExchangeSignalsDataInfo,
+    [string, string | number | null][],
+    number[],
+    number[],
+    number[],
+    number[],
+  ][]
 }
 
 export type SignalsDataDataContent = Map<string, ExchangeSignalsData[]>

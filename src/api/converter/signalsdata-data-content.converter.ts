@@ -33,14 +33,14 @@ export class SignalsDataDataContentConverter implements JsonCustomConvert<Map<st
           date: new Date(dateTime * 1000),
           // info: jsonConvert.deserializeObject(info, ExchangeSignalsDataInfoEntity),
           info,
-          position: position || '',
-          type: type || '',
-          group: group || '',
+          position: (position || '').toString(),
+          type: (type || '').toString(),
+          group: (group || '').toString(),
           // rr: jsonConvert.deserializeObject(parseRiskReward(riskReward), RiskRewardEntity),
-          rr: parseRiskReward(riskReward),
-          potential: parseFloat(potential || '0'),
+          rr: parseRiskReward((riskReward || '').toString()),
+          potential: parseFloat((potential || '0').toString()),
           marginType: +(marginType || 1) === MarginType.ISOLATED ? 'isolated' : 'cross',
-          leverage: parseInt(leverage || '1', 10),
+          leverage: parseInt((leverage || '1').toString(), 10),
         }
         signalData.push(jsonConvert.deserializeObject(signal, ExchangeSignalsDataEntity))
       })
