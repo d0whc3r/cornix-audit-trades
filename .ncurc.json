@@ -1,0 +1,3 @@
+{
+  "reject": ["inquirer", "@types/inquirer"]
+}
