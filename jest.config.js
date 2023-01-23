@@ -1,7 +1,16 @@
 module.exports = {
   moduleFileExtensions: ['js', 'json', 'ts'],
   transform: {
-    '^.+\\.tsx?$': 'ts-jest'
+    '^.+\\.tsx?$': [
+      'ts-jest',
+      {
+        tsconfig: {
+          sourceMap: true,
+          inlineSourceMap: true,
+        },
+        diagnostics: true,
+      },
+    ],
   },
   testMatch: ['**/tests/**/*.spec.ts', '**/__test__/*.ts'],
   collectCoverage: false,
@@ -15,8 +24,8 @@ module.exports = {
       // statements: -10
       branches: 0,
       functions: 0,
-      lines: 0
-    }
+      lines: 0,
+    },
   },
   cache: false,
   testResultsProcessor: 'jest-sonar-reporter',
@@ -24,13 +33,4 @@ module.exports = {
   setupFiles: ['./jest.setup.js'],
   setupFilesAfterEnv: ['./jest.setup-after-env.js'],
   testEnvironment: 'node',
-  globals: {
-    'ts-jest': {
-      tsconfig: {
-        sourceMap: true,
-        inlineSourceMap: true
-      },
-      diagnostics: true
-    }
-  }
-};
+}

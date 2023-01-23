@@ -96899,7 +96899,7 @@ const mockData: ISignalsDataDataContent = {
   },
 }
 
-describe.skip('SignalsDataDataContentConverter', () => {
+describe('SignalsDataDataContentConverter', () => {
   let converter: SignalsDataDataContentConverter
   beforeEach(() => {
     converter = new SignalsDataDataContentConverter()
