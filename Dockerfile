@@ -2,7 +2,7 @@ FROM node:18 as builder
 
 WORKDIR /app
 
-COPY package.json tsconfig.json yarn.lock rollup.config.js ./
+COPY package.json tsconfig.json yarn.lock rollup.config.mjs ./
 COPY ./src ./src
 
 RUN yarn install --frozen-lockfile --check-files
