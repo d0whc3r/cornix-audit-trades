@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/d0whc3r/cornix-audit-trades/compare/v1.1.0...v1.1.1) (2023-01-23)
+
+
+### Bug Fixes
+
+* remove *100 in profit calculation ([ea55032](https://github.com/d0whc3r/cornix-audit-trades/commit/ea550321cfccab319e172abeacea508aa1d993f1))
+
 # [1.1.0](https://github.com/d0whc3r/cornix-audit-trades/compare/v1.0.9...v1.1.0) (2023-01-10)
 
 
