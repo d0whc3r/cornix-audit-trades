@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.2](https://github.com/d0whc3r/cornix-audit-trades/compare/v1.1.1...v1.1.2) (2023-01-23)
+
+
+### Bug Fixes
+
+* update deps ([b54c9c9](https://github.com/d0whc3r/cornix-audit-trades/commit/b54c9c9b62fd8395d093d3969ee642ef161c983f))
+* update docker build ([386e7f8](https://github.com/d0whc3r/cornix-audit-trades/commit/386e7f863a1718a7216ad76e4e3cdc411b8448e1))
+
 ## [1.1.1](https://github.com/d0whc3r/cornix-audit-trades/compare/v1.1.0...v1.1.1) (2023-01-23)
 
 
