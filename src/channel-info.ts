@@ -55,7 +55,7 @@ async function generateCsvContent(trades: Map<string, ExchangeSignalsDataEntity[
         group,
         formatDecimal(entry_progress),
         formatDecimal(take_profit_progress),
-        formatDecimal(profit * 100),
+        formatDecimal(profit),
         formatDecimal(potential),
         formatDecimal(rr.calculateRR()),
         marginType,
