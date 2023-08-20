@@ -21,7 +21,7 @@ export class CornixConnection {
 
   setApi(authToken: string) {
     this.api = axios.create({
-      baseURL: 'https://app.cornix.io',
+      baseURL: 'https://app2.cornix.io',
       headers: {
         'content-type': 'application/json',
         Authorization: `token ${authToken}`,

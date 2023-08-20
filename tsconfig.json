@@ -12,7 +12,6 @@
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "noStrictGenericChecks": true,
     "noUnusedLocals": true,
     "noUnusedParameters": false,
     "pretty": true,
