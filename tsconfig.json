@@ -6,7 +6,7 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "lib": ["ESNext", "es2021", "dom"],
-    "module": "CommonJS",
+    "module": "ESNext",
     "moduleResolution": "Node",
     "noEmitOnError": true,
     "noImplicitAny": true,
@@ -21,7 +21,7 @@
     "sourceMap": false,
     "strict": true,
     "strictNullChecks": true,
-    "target": "ES5",
+    "target": "ES2021",
     "traceResolution": false,
     "types": ["node", "jest", "jest-extended", "jest-chain"]
   },

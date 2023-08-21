@@ -1,9 +1,9 @@
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import nodeResolve from '@rollup/plugin-node-resolve'
+import typescript from '@rollup/plugin-typescript'
 import builtinModules from 'builtin-modules'
 import autoExternal from 'rollup-plugin-auto-external'
-import typescript from '@rollup/plugin-typescript';
 import pkgJson from './package.json' assert { type: 'json' }
 
 const isProd = process.env.NODE_ENV === 'production'
@@ -24,13 +24,8 @@ export default function rollupConfig() {
       dependencies: true,
     }),
     nodeResolve(resolveOptions),
-    commonjs(),
     typescript(),
-    // esbuild({
-    //   minify: isProd,
-    //   target: ['node18'],
-    //   sourceMap: !isProd,
-    // }),
+    commonjs(),
   ]
 
   const external = [...builtinModules]
