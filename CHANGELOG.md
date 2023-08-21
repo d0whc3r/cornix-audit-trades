@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.3](https://github.com/d0whc3r/cornix-audit-trades/compare/v1.1.2...v1.1.3) (2023-08-21)
+
+
+### Bug Fixes
+
+* update deps ([c784067](https://github.com/d0whc3r/cornix-audit-trades/commit/c784067663b619e7d92ae6a1a8c14ed6baaf7fe3))
+* update deps ([970d147](https://github.com/d0whc3r/cornix-audit-trades/commit/970d147f9ecae3c9e522d50e75017eb5a4da99d0))
+* use rollup-typescript instead of esbuild ([682ddfb](https://github.com/d0whc3r/cornix-audit-trades/commit/682ddfbd7bd9942703d989dfb49bf09be65a34f4))
+
 ## [1.1.2](https://github.com/d0whc3r/cornix-audit-trades/compare/v1.1.1...v1.1.2) (2023-01-23)
 
 
