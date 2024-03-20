@@ -64,8 +64,8 @@
     "mkdirp": "3.0.1"
   },
   "devDependencies": {
-    "@babel/core": "7.22.10",
-    "@babel/eslint-parser": "7.22.10",
+    "@babel/core": "7.24.3",
+    "@babel/eslint-parser": "7.24.1",
     "@commitlint/cli": "17.7.1",
     "@commitlint/config-conventional": "17.7.0",
     "@rollup/plugin-commonjs": "25.0.4",
