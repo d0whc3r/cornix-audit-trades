@@ -49,7 +49,7 @@
     "test:coverage": "yarn test --coverage",
     "-- HELPERS --": "-------------------------------------------------------------------------------------------------------",
     "postinstall": "patch-package",
-    "prepare": "husky install",
+    "prepare": "husky",
     "ci": "yarn clean && yarn install",
     "clean": "yarn clean:packages",
     "clean:packages": "rm -fr yarn.lock package-lock.json dist node_modules audit-trades*",
