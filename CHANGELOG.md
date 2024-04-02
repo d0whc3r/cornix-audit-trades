@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.5](https://github.com/d0whc3r/cornix-audit-trades/compare/v1.1.4...v1.1.5) (2024-04-02)
+
+
+### Bug Fixes
+
+* update dependencies ([7fca702](https://github.com/d0whc3r/cornix-audit-trades/commit/7fca70264c2caf5d96199fdbbc7321503ee96036))
+* update node version build ([35c6199](https://github.com/d0whc3r/cornix-audit-trades/commit/35c61996ff0f0a7db3ceb0261ef3edbea1bd885a))
+
 ## [1.1.4](https://github.com/d0whc3r/cornix-audit-trades/compare/v1.1.3...v1.1.4) (2023-08-21)
 
 
