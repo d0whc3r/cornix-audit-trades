@@ -5,7 +5,7 @@
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
-    "lib": ["ESNext", "es2021", "dom"],
+    "lib": ["ESNext", "es2022", "DOM"],
     "module": "ESNext",
     "moduleResolution": "Node",
     "noEmitOnError": true,

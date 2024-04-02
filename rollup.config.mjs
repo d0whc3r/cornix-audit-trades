@@ -10,7 +10,7 @@ const isProd = process.env.NODE_ENV === 'production'
 
 export default function rollupConfig() {
   const resolveOptions = {
-    mainFields: ['jsnext:main', 'es2020', 'es2018', 'es2017', 'es2015', 'module', 'main'],
+    mainFields: ['jsnext:main', 'es2020', 'es2018', 'es2017', 'es2022', 'module', 'main'],
     preferBuiltins: true,
     extensions: ['.ts', '.js', '.mjs', '.node'],
     modulesOnly: false,
