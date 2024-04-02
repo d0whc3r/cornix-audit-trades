@@ -1,9 +1,10 @@
-FROM node:18 AS builder
+FROM node:20 AS builder
 
 WORKDIR /app
 
-COPY package.json tsconfig.json yarn.lock rollup.config.mjs ./
+COPY package.json tsconfig.json yarn.lock .yarnrc rollup.config.mjs ./
 COPY ./src ./src
+COPY ./.yarn ./.yarn
 
 RUN yarn install --frozen-lockfile --check-files
 RUN yarn build
