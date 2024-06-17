@@ -12,7 +12,7 @@ module.exports = {
       },
     ],
   },
-  testMatch: ['**/tests/**/*.spec.ts', '**/__test__/*.ts'],
+  testMatch: ['**/tests/**/*.spec.ts'],
   collectCoverage: false,
   coverageDirectory: 'coverage',
   collectCoverageFrom: ['src/**/*.ts'],

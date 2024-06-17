@@ -25,7 +25,7 @@ export class SignalsDataDataContentConverter implements JsonCustomConvert<Map<st
     Object.entries(data).forEach(([exchange, { signal_cards }]) => {
       const signalData: ExchangeSignalsDataEntity[] = []
       signal_cards.forEach((card) => {
-        const [, signalId, symbol, , dateTime, , , info, extra] = card
+        const [signalId, symbol, , , dateTime, , , info, extra] = card
         const [[, position], [, type], [, group], , [, riskReward], [, potential], [, marginType], [, leverage]] = extra
         const signal: ExchangeSignalsData = {
           signalId,
