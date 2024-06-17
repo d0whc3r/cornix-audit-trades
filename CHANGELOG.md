@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.6](https://github.com/d0whc3r/cornix-audit-trades/compare/v1.1.5...v1.1.6) (2024-06-17)
+
+
+### Bug Fixes
+
+* update cornix api changes ([866dafc](https://github.com/d0whc3r/cornix-audit-trades/commit/866dafcd697a843842b911cf96e7b18c32d6503b))
+
 ## [1.1.5](https://github.com/d0whc3r/cornix-audit-trades/compare/v1.1.4...v1.1.5) (2024-04-02)
 
 
