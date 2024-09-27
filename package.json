@@ -59,7 +59,7 @@
   },
   "dependencies": {
     "commander": "12.1.0",
-    "inquirer": "8.2.5",
+    "inquirer": "9.3.7",
     "json2typescript": "1.5.1",
     "mkdirp": "3.0.1"
   },
@@ -78,7 +78,7 @@
     "@semantic-release/github": "10.0.6",
     "@semantic-release/npm": "12.0.1",
     "@semantic-release/release-notes-generator": "14.0.0",
-    "@types/inquirer": "8.2.5",
+    "@types/inquirer": "9.0.7",
     "@types/jest": "29.5.12",
     "@types/mkdirp": "2.0.0",
     "@types/node": "20.14.2",
