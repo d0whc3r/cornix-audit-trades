@@ -1,8 +1,8 @@
 export interface ExchangeSignalsDataInfo {
-  time_passed: string
   entry_progress: number
-  take_profit_progress: number
   profit?: number | null
+  take_profit_progress: number
+  time_passed: string
 }
 
 export interface RiskReward {

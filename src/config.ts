@@ -3,7 +3,7 @@ function isTrue(txt = '') {
 }
 
 export class Config {
-  static _ACCESS_TOKEN = process.env.ACCESS_TOKEN || ''
+  private static _ACCESS_TOKEN = process.env.ACCESS_TOKEN ?? ''
 
   static get ACCESS_TOKEN() {
     return this._ACCESS_TOKEN
@@ -13,7 +13,7 @@ export class Config {
     this._ACCESS_TOKEN = item
   }
 
-  static _REFRESH_TOKEN = process.env.REFRESH_TOKEN || ''
+  private static _REFRESH_TOKEN = process.env.REFRESH_TOKEN ?? ''
 
   static get REFRESH_TOKEN() {
     return this._REFRESH_TOKEN
@@ -23,7 +23,7 @@ export class Config {
     this._REFRESH_TOKEN = item
   }
 
-  static _REPLACE_DOTS = isTrue(process.env.REPLACE_DOTS)
+  private static _REPLACE_DOTS = isTrue(process.env.REPLACE_DOTS)
 
   static get REPLACE_DOTS() {
     return this._REPLACE_DOTS
@@ -33,7 +33,7 @@ export class Config {
     this._REPLACE_DOTS = item
   }
 
-  static _INCLUDE_OPEN = isTrue(process.env.INCLUDE_OPEN)
+  private static _INCLUDE_OPEN = isTrue(process.env.INCLUDE_OPEN)
 
   static get INCLUDE_OPEN() {
     return this._INCLUDE_OPEN
@@ -43,7 +43,7 @@ export class Config {
     this._INCLUDE_OPEN = item
   }
 
-  static _EXTRACT_PROFITS = isTrue(process.env.EXTRACT_PROFITS)
+  private static _EXTRACT_PROFITS = isTrue(process.env.EXTRACT_PROFITS)
 
   static get EXTRACT_PROFITS() {
     return this._EXTRACT_PROFITS
@@ -53,7 +53,7 @@ export class Config {
     this._EXTRACT_PROFITS = item
   }
 
-  static _CHANNELS_INFO = isTrue(process.env.CHANNELS_INFO)
+  private static _CHANNELS_INFO = isTrue(process.env.CHANNELS_INFO)
 
   static get CHANNELS_INFO() {
     return this._CHANNELS_INFO

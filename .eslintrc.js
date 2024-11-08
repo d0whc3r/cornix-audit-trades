@@ -19,7 +19,7 @@ module.exports = {
     node: true,
     commonjs: true,
   },
-  extends: ['prettier', 'eslint:recommended', 'plugin:sonarjs/recommended', 'plugin:security/recommended'],
+  extends: ['prettier', 'eslint:recommended', 'plugin:sonarjs/recommended-legacy', 'plugin:security/recommended-legacy'],
   plugins: ['sonarjs', 'security'],
   globals: {
     Atomics: 'readonly',
@@ -56,8 +56,8 @@ module.exports = {
 
         // General formatting
         '@typescript-eslint/semi': 0,
-        '@typescript-eslint/brace-style': 2,
-        '@typescript-eslint/func-call-spacing': 2,
+        // '@typescript-eslint/brace-style': 2,
+        // '@typescript-eslint/func-call-spacing': 2,
         '@typescript-eslint/explicit-module-boundary-types': 0,
 
         // tslint

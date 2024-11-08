@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/prefer-nullish-coalescing */
 import { JsonConvert, JsonConverter, JsonCustomConvert } from 'json2typescript'
 import { ExchangeSignalsDataEntity } from '../entity/signals-data/exchange-signals-data.entity'
 import { ExchangeSignalsData, ISignalsDataDataContent, MarginType, RiskReward } from '../entity/signals-data/signals-data.type'
