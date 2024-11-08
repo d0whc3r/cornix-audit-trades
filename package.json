@@ -78,7 +78,7 @@
     "@semantic-release/github": "11.0.1",
     "@semantic-release/npm": "12.0.1",
     "@semantic-release/release-notes-generator": "14.0.1",
-    "@types/inquirer": "8.2.5",
+    "@types/inquirer": "9.0.7",
     "@types/jest": "29.5.14",
     "@types/mkdirp": "2.0.0",
     "@types/node": "22.9.0",
