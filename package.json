@@ -59,7 +59,7 @@
   },
   "dependencies": {
     "commander": "12.1.0",
-    "inquirer": "8.2.5",
+    "inquirer": "12.4.3",
     "json2typescript": "1.5.1",
     "mkdirp": "3.0.1"
   },
