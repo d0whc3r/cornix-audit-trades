@@ -64,7 +64,7 @@
     "mkdirp": "3.0.1"
   },
   "devDependencies": {
-    "@babel/core": "7.26.0",
+    "@babel/core": "7.29.6",
     "@babel/eslint-parser": "7.25.9",
     "@commitlint/cli": "19.5.0",
     "@commitlint/config-conventional": "19.5.0",
